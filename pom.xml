@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.almis.ade</groupId>
+  <artifactId>ade</artifactId>
+  <version>2.0.5</version>
+  <name>ADE (V${project.version})</name>
+  <description>Almis Document Engine: reporting library</description>
+  <packaging>pom</packaging>
+
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Pablo García</name>
+      <email>pablo.garcia@almis.com</email>
+      <organization>Almis I.F.</organization>
+      <organizationUrl>http://www.almis.com</organizationUrl>
+    </developer>
+    <developer>
+      <name>Pablo Vidal</name>
+      <email>pablo.vidal@almis.com</email>
+      <organization>Almis I.F.</organization>
+      <organizationUrl>http://www.almis.com</organizationUrl>
+    </developer>
+    <developer>
+      <name>Isaac Serna</name>
+      <email>isaac.serna@almis.com</email>
+      <organization>Almis I.F.</organization>
+      <organizationUrl>http://www.almis.com</organizationUrl>
+    </developer>
+    <developer>
+      <name>Aitor Ugarte</name>
+      <email>aitor.ugarte@almis.com</email>
+      <organization>Almis I.F.</organization>
+      <organizationUrl>http://www.almis.com</organizationUrl>
+    </developer>
+  </developers>
+
+  <properties>
+    <!-- Project versions -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+  </properties>
+
+  <modules>
+    <module>ade-dependencies</module>
+    <module>ade-core</module>
+    <module>ade-spring-boot-starter</module>
+  </modules>
+
+  <build>
+    <plugins>
+      <!-- Git flow -->
+      <plugin>
+        <groupId>external.atlassian.jgitflow</groupId>
+        <artifactId>jgitflow-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <configuration>
+          <pushFeatures>true</pushFeatures>
+          <pushHotfixes>true</pushHotfixes>
+          <pushReleases>true</pushReleases>
+          <enableSshAgent>false</enableSshAgent>
+          <flowInitContext>
+            <masterBranchName>master</masterBranchName>
+            <developBranchName>develop</developBranchName>
+            <featureBranchPrefix>feature/</featureBranchPrefix>
+            <releaseBranchPrefix>release/</releaseBranchPrefix>
+            <hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+            <versionTagPrefix>ade-</versionTagPrefix>
+          </flowInitContext>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <show>public</show>
+          <outputDirectory>${project.build.directory}/apidocs</outputDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.5.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.9</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <name>Releases</name>
+      <url>https://mvn.almis.com/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>Snapshots</name>
+      <url>https://mvn.almis.com/content/repositories/snapshots</url>
+      <uniqueVersion>false</uniqueVersion>
+    </snapshotRepository>
+  </distributionManagement>
+
+</project>

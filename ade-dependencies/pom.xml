@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <parent>
+    <groupId>com.almis.ade</groupId>
+    <artifactId>ade</artifactId>
+    <version>2.0.5</version>
+    <relativePath>..</relativePath>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>ade-dependencies</artifactId>
+  <version>2.0.5</version>
+  <packaging>pom</packaging>
+  <name>ADE Dependencies (V${project.version})</name>
+  <description>ADE Dependencies</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <dynamicreports.version>6.0.0</dynamicreports.version>
+
+    <!-- Sonar configuration -->
+    <sonar.branch>ADE V${project.version}</sonar.branch>
+    <sonar.scm.url>scm:git:https://gitlab.com/awe-team/ade.git</sonar.scm.url>
+    <sonar.scm.enabled>true</sonar.scm.enabled>
+    <sonar.links.homepage>https://gitlab.com/awe-team/ade</sonar.links.homepage>
+    <sonar.links.issue>https://gitlab.com/awe-team/ade/issues</sonar.links.issue>
+    <sonar.links.scm>https://gitlab.com/awe-team/ade.git</sonar.links.scm>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+    <sonar.jacoco.itReportPath>${project.basedir}/target/jacoco-it.exec</sonar.jacoco.itReportPath>
+    <sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
+    <sonar.jacoco.jar>${project.basedir}/target/lib/jacocoagent.jar</sonar.jacoco.jar>
+
+    <!-- Sonar properties -->
+    <application.folder>.</application.folder>
+    <sonar.sources>src</sonar.sources>
+    <sonar.inclusions>src/main/java/**</sonar.inclusions>
+    <sonar.language>java</sonar.language>
+    <sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath>
+
+    <!-- dependency versions -->
+    <spring-boot.version>1.5.10.RELEASE</spring-boot.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- spring boot -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- Current package versions -->
+      <dependency>
+        <groupId>com.almis.ade</groupId>
+        <artifactId>ade-spring-boot-starter</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.almis.ade</groupId>
+        <artifactId>ade-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <!-- Java compiler -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.2</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+
+      </plugin>
+      <!-- Sonar -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>2.6</version>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

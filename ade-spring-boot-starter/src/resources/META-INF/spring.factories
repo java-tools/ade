@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.almis.ade.autoconfigure.AdeAutoConfiguration,\
+com.almis.ade.autoconfigure.AsyncConfig

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.almis.ade.controller.FileGeneratorController,\
+com.almis.ade.controller.PrintEngineController
