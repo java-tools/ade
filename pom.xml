@@ -60,22 +60,22 @@
     <plugins>
       <!-- Git flow -->
       <plugin>
-        <groupId>external.atlassian.jgitflow</groupId>
-        <artifactId>jgitflow-maven-plugin</artifactId>
-        <version>1.0.0</version>
+        <groupId>com.amashchenko.maven.plugin</groupId>
+        <artifactId>gitflow-maven-plugin</artifactId>
+        <version>1.11.0</version>
         <configuration>
-          <pushFeatures>true</pushFeatures>
-          <pushHotfixes>true</pushHotfixes>
-          <pushReleases>true</pushReleases>
-          <enableSshAgent>false</enableSshAgent>
-          <flowInitContext>
-            <masterBranchName>master</masterBranchName>
-            <developBranchName>develop</developBranchName>
+          <!-- optional configuration -->
+          <installProject>true</installProject>
+          <gitFlowConfig>
+            <productionBranch>master</productionBranch>
+            <developmentBranch>develop</developmentBranch>
             <featureBranchPrefix>feature/</featureBranchPrefix>
             <releaseBranchPrefix>release/</releaseBranchPrefix>
             <hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+            <supportBranchPrefix>support/</supportBranchPrefix>
             <versionTagPrefix>ade-</versionTagPrefix>
-          </flowInitContext>
+            <origin>origin</origin>
+          </gitFlowConfig>
         </configuration>
       </plugin>
     </plugins>
