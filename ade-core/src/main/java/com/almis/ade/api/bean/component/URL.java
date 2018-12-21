@@ -11,25 +11,25 @@ public class URL extends Element<URL> {
   private String label;
 
   /**
-   *
-   * @param identifier
+   * URL constructor
+   * @param identifier URL identifier
    */
   public URL(@NotNull String identifier) {
     super(identifier);
   }
 
   /**
-   *
-   * @return
+   * Get URL
+   * @return URL
    */
   public java.net.URL getUrl() {
     return urlValue;
   }
 
   /**
-   *
-   * @param url
-   * @return
+   * Set URL
+   * @param url url
+   * @return URL
    */
   public URL setUrl(java.net.URL url) {
     this.urlValue = url;
@@ -37,17 +37,17 @@ public class URL extends Element<URL> {
   }
 
   /**
-   *
-   * @return
+   * Get label
+   * @return label
    */
   public String getLabel() {
     return label;
   }
 
   /**
-   *
-   * @param label
-   * @return
+   * Set label
+   * @param label label
+   * @return URL
    */
   public URL setLabel(String label) {
     this.label = label;

@@ -43,7 +43,7 @@ public class HashUtil {
    * Hash with SHA256
    * @param data Data
    * @return Data hash
-   * @throws NoSuchAlgorithmException
+   * @throws NoSuchAlgorithmException NoSuchAlgorithmException exception
    */
   public static String sha256(byte[] data) throws NoSuchAlgorithmException {
     MessageDigest md = MessageDigest.getInstance("SHA-256");

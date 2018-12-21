@@ -14,7 +14,7 @@ public class PrintBeanBuilderService {
 
   /**
    * Autowired constructor
-   * @param jasperEngineBuilder
+   * @param jasperEngineBuilder jasper engine builder
    */
   @Autowired
   public PrintBeanBuilderService(JasperEngineBuilderService jasperEngineBuilder) {
@@ -24,7 +24,7 @@ public class PrintBeanBuilderService {
   /**
    * Print bean with Jasper Engine
    *
-   * @return
+   * @return JasperEngineBuilderService
    */
   public JasperEngineBuilderService withJasper(){
     return jasperEngineBuilder;

@@ -9,15 +9,17 @@ import javax.validation.constraints.NotNull;
 import static net.sf.dynamicreports.report.builder.DynamicReports.bcode;
 
 /**
+ * QRCodeBuilder class
  * @author dfuentes
  */
 public class QRCodeBuilder extends ElementBuilder<QRCode, ComponentBuilder> {
 
   /**
-   * @param element
-   * @param jasperReportBuilder
+   * QRCode build
+   * @param element QRCode element
+   * @param jasperReportBuilder report builder
    *
-   * @return
+   * @return ComponentBuilder
    */
   @Override
   public ComponentBuilder build(@NotNull QRCode element, JasperReportBuilder jasperReportBuilder) {

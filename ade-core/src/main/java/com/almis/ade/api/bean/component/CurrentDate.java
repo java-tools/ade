@@ -7,8 +7,8 @@ package com.almis.ade.api.bean.component;
 public class CurrentDate extends Element<CurrentDate> {
 
   /**
-   *
-   * @param identifier
+   * CurrentDate constructor
+   * @param identifier identifier
    */
   public CurrentDate(String identifier) {
     super(identifier);

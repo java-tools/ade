@@ -116,7 +116,8 @@ public class IconUtil {
 
   /**
    * Render icon to svg
-   * @param icon
+   * @param icon string icon
+   * @param color color element
    * @return Renderable
    */
   public static Renderable renderIcon(String icon, Color color) {
@@ -131,7 +132,7 @@ public class IconUtil {
 
   /**
    * Get icon from file
-   * @param iconName
+   * @param iconName icon name
    * @return Icon as string
    */
   public static String getIconFromFile(String iconName) {

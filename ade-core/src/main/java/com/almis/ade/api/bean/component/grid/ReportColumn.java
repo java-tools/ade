@@ -24,7 +24,7 @@ public class ReportColumn extends Element<ReportColumn> implements GridHeader {
   /**
    * Constructor
    *
-   * @param identifier
+   * @param identifier report column identifier
    */
   public ReportColumn(@NotNull String identifier) {
     super(identifier);

@@ -297,7 +297,7 @@ public class PrintBean {
    *
    * @param orientation Orientation
    *
-   * @return this
+   * @return PrintBean
    */
   public PrintBean setOrientation(PageOrientation orientation) {
     this.orientation = orientation;
@@ -307,7 +307,7 @@ public class PrintBean {
   /**
    * Get page margin
    *
-   * @return
+   * @return margin of page
    */
   public int getPageMargin() {
     return pageMargin;
@@ -316,9 +316,9 @@ public class PrintBean {
   /**
    * Set page margin
    *
-   * @param pageMargin
+   * @param pageMargin page margin
    *
-   * @return
+   * @return PrintBean
    */
   public PrintBean setPageMargin(int pageMargin) {
     this.pageMargin = pageMargin;
@@ -328,7 +328,7 @@ public class PrintBean {
   /**
    * Get page type
    *
-   * @return
+   * @return PageType
    */
   public PageType getPageType() {
     return pageType;
@@ -337,9 +337,9 @@ public class PrintBean {
   /**
    * Set page type
    *
-   * @param pageType
+   * @param pageType page type
    *
-   * @return
+   * @return PrintBean
    */
   public PrintBean setPageType(PageType pageType) {
     this.pageType = pageType;

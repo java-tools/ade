@@ -17,25 +17,25 @@ public class PageFooter extends Element<PageFooter> {
   private Line line;
 
   /**
-   *
-   * @param identifier
+   * PageFooter constructor
+   * @param identifier pageFooter identifier
    */
   public PageFooter(String identifier) {
     super(identifier);
   }
 
   /**
-   *
-   * @return
+   * Get paging
+   * @return Paging element
    */
   public Paging getPaging() {
     return paging;
   }
 
   /**
-   *
-   * @param paging
-   * @return
+   * Set paging
+   * @param paging paging
+   * @return PageFooter
    */
   public PageFooter setPaging(Paging paging) {
     this.paging = paging;
@@ -43,17 +43,17 @@ public class PageFooter extends Element<PageFooter> {
   }
 
   /**
-   *
-   * @return
+   * Get page footer variables
+   * @return vaiable list
    */
   public List<Element> getVariables() {
     return variables;
   }
 
   /**
-   *
-   * @param variables
-   * @return
+   * Set page footer variables
+   * @param variables page footer variable list
+   * @return PageFooter
    */
   public PageFooter setVariables(List<Element> variables) {
     this.variables = variables;
@@ -61,17 +61,17 @@ public class PageFooter extends Element<PageFooter> {
   }
 
   /**
-   *
-   * @return
+   * Get line
+   * @return Line element
    */
   public Line getLine() {
     return line;
   }
 
   /**
-   *
-   * @param line
-   * @return
+   * Set Line
+   * @param line line
+   * @return PageFooter element
    */
   public PageFooter setLine(Line line) {
     this.line = line;

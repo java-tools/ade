@@ -11,8 +11,8 @@ public class PageBreak extends Element<PageBreak> {
   private BreakType pageBreakType;
 
   /**
-   *
-   * @param identifier
+   * PageBreak constructor
+   * @param identifier page break identifier
    */
   public PageBreak(String identifier) {
     super(identifier);
@@ -20,9 +20,9 @@ public class PageBreak extends Element<PageBreak> {
   }
 
   /**
-   *
-   * @param identifier
-   * @param breakType
+   * PageBreak constructor
+   * @param identifier page break identifier
+   * @param breakType page break type
    */
   public PageBreak(String identifier, BreakType breakType) {
     super(identifier);
@@ -32,7 +32,7 @@ public class PageBreak extends Element<PageBreak> {
   /**
    * Get page break type
    *
-   * @return
+   * @return BreakType
    */
   public BreakType getPageBreakType() {
     return pageBreakType;
@@ -41,9 +41,9 @@ public class PageBreak extends Element<PageBreak> {
   /**
    * Set page break type
    *
-   * @param pageBreakType
+   * @param pageBreakType page brake type
    *
-   * @return
+   * @return PageBreak
    */
   public PageBreak setPageBreakType(BreakType pageBreakType) {
     this.pageBreakType = pageBreakType;

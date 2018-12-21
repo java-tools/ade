@@ -13,16 +13,16 @@ import javax.validation.constraints.NotNull;
 import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 
 /**
- *
+ * IconBuilder class
  * @author dfuentes
  */
 public class IconBuilder extends ElementBuilder<Icon, ComponentBuilder> {
 
   /**
-   *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * Icon builder
+   * @param element Icon element
+   * @param jasperReportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   public ComponentBuilder build(@NotNull Icon element, JasperReportBuilder jasperReportBuilder) {

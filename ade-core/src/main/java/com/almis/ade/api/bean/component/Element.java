@@ -8,20 +8,12 @@ import javax.validation.constraints.NotNull;
 import static net.sf.dynamicreports.report.builder.DynamicReports.stl;
 
 /**
- *
+ * Element class
  * @author dfuentes
- * @param <T>
  */
 public class Element<T> implements IBuilderInitializer {
 
-  /**
-   *
-   */
   protected String identifier;
-
-  /**
-   *
-   */
   protected StyleBuilder style;
 
   /**
@@ -44,17 +36,17 @@ public class Element<T> implements IBuilderInitializer {
   }
 
   /**
-   *
-   * @return
+   * Get element identifier
+   * @return element identifier
    */
   public String getIdentifier() {
     return identifier;
   }
 
   /**
-   *
-   * @param identifier
-   * @return
+   * Set element identifier
+   * @param identifier identifier
+   * @return Element object
    */
   @SuppressWarnings("unchecked")
   public T setIdentifier(String identifier) {
@@ -63,17 +55,17 @@ public class Element<T> implements IBuilderInitializer {
   }
 
   /**
-   *
-   * @return
+   * Get style builder
+   * @return StyleBuilder
    */
   public StyleBuilder getStyle() {
     return style;
   }
 
   /**
-   *
-   * @param style
-   * @return
+   * Set style builder
+   * @param style style builder
+   * @return Element object
    */
   @SuppressWarnings("unchecked")
   public T setStyle(StyleBuilder style) {

@@ -18,8 +18,8 @@ public class FileUtil {
 
   /**
    * Retrieve a file from an URL
-   * @param url
-   * @return
+   * @param url file url
+   * @return input stream of file
    */
   public static InputStream getFileFromURL(URL url){
     try {

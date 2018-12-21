@@ -14,25 +14,25 @@ public class Title extends Element<Title> {
   private Text date;
 
   /**
-   *
-   * @param identifier
+   * Title constructor
+   * @param identifier title identifier
    */
   public Title(String identifier) {
     super(identifier);
   }
 
   /**
-   *
-   * @return
+   * Get logo
+   * @return Image
    */
   public Image getLogo() {
     return logo;
   }
 
   /**
-   *
-   * @param logo
-   * @return
+   * Set logo
+   * @param logo logo
+   * @return Title element
    */
   public Title setLogo(Image logo) {
     this.logo = logo;
@@ -40,17 +40,17 @@ public class Title extends Element<Title> {
   }
 
   /**
-   *
-   * @return
+   * Get title
+   * @return Text
    */
   public Text getTitle() {
     return text;
   }
 
   /**
-   *
-   * @param title
-   * @return
+   * Set title
+   * @param title title
+   * @return Title element
    */
   public Title setTitle(Text title) {
     this.text = title;
@@ -58,17 +58,17 @@ public class Title extends Element<Title> {
   }
 
   /**
-   *
-   * @return
+   * Get date
+   * @return Text
    */
   public Text getDate() {
     return date;
   }
 
   /**
-   *
-   * @param date
-   * @return
+   * Set date
+   * @param date date
+   * @return Title element
    */
   public Title setDate(Text date) {
     this.date = date;

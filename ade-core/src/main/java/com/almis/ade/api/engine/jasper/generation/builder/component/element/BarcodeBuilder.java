@@ -14,9 +14,9 @@ public class BarcodeBuilder extends ElementBuilder<Barcode, ComponentBuilder> {
 
   /**
    *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * @param element barcode element
+   * @param jasperReportBuilder jasper report builder
+   * @return ComponentBuilder
    */
   @Override
   public ComponentBuilder build(@NotNull Barcode element, JasperReportBuilder jasperReportBuilder) {

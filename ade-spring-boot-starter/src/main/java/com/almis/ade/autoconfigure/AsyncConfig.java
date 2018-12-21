@@ -15,7 +15,7 @@ public class AsyncConfig {
 
   /**
    * File processing thread pool
-   * @return
+   * @return FileProcessingThreadPool
    */
   @Bean
   @ConditionalOnMissingBean

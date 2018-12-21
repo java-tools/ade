@@ -13,7 +13,8 @@ public class Barcode extends Element<Barcode> {
   private BarcodeType type;
 
   /**
-   * @param identifier
+   * @param identifier identifier
+   * @param barcodeType barcode type
    */
   public Barcode(String identifier, BarcodeType barcodeType) {
     super(identifier);
@@ -21,8 +22,9 @@ public class Barcode extends Element<Barcode> {
   }
 
   /**
-   * @param identifier
-   * @param code
+   * @param identifier identifier
+   * @param barcodeType barcode type
+   * @param code code
    */
   public Barcode(String identifier, BarcodeType barcodeType, String code) {
     super(identifier);
@@ -33,7 +35,7 @@ public class Barcode extends Element<Barcode> {
   /**
    * Get Code
    *
-   * @return
+   * @return code
    */
   public String getCode() {
     return code;
@@ -42,9 +44,9 @@ public class Barcode extends Element<Barcode> {
   /**
    * Set code
    *
-   * @param code
+   * @param code code
    *
-   * @return
+   * @return barcode
    */
   public Barcode setCode(String code) {
     this.code = code;
@@ -54,7 +56,7 @@ public class Barcode extends Element<Barcode> {
   /**
    * Get size
    *
-   * @return
+   * @return size
    */
   public int getSize() {
     return size == null ? Image.Size.SMALL.getSize() : size;
@@ -63,9 +65,9 @@ public class Barcode extends Element<Barcode> {
   /**
    * Set size
    *
-   * @param size
+   * @param size size of barcode
    *
-   * @return
+   * @return Barcode
    */
   public Barcode setSize(Image.Size size) {
     this.size = size.getSize();
@@ -75,7 +77,7 @@ public class Barcode extends Element<Barcode> {
   /**
    * Is the text shown
    *
-   * @return
+   * @return true if text is shown
    */
   public boolean isDrawText() {
     return drawText;
@@ -84,9 +86,9 @@ public class Barcode extends Element<Barcode> {
   /**
    * Set if the text is shown
    *
-   * @param drawText
+   * @param drawText text is shown flag
    *
-   * @return
+   * @return Barcode
    */
   public Barcode setDrawText(boolean drawText) {
     this.drawText = drawText;
@@ -96,7 +98,7 @@ public class Barcode extends Element<Barcode> {
   /**
    * Get barcodeType
    *
-   * @return
+   * @return Barcode type
    */
   public BarcodeType getBarcodeType() {
     return type;
@@ -105,9 +107,9 @@ public class Barcode extends Element<Barcode> {
   /**
    * Set barcode type
    *
-   * @param type
+   * @param type barcode type
    *
-   * @return
+   * @return Barcode
    */
   public Barcode setBarcodeType(BarcodeType type) {
     this.type = type;

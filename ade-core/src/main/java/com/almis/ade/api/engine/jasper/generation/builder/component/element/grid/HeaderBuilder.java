@@ -10,16 +10,16 @@ import javax.validation.constraints.NotNull;
 import static net.sf.dynamicreports.report.builder.DynamicReports.grid;
 
 /**
- *
+ * HeaderBuilder class
  * @author dfuentes
  */
 public class HeaderBuilder extends ElementBuilder<ReportHeader, ColumnTitleGroupBuilder> {
 
   /**
-   *
-   * @param element
-   * @param reportBuilder
-   * @return
+   * Get ColumnTitleGroup builder
+   * @param element Report header
+   * @param reportBuilder report builder
+   * @return ColumnTitleGroupBuilder
    */
   @Override
   public ColumnTitleGroupBuilder build(@NotNull ReportHeader element, JasperReportBuilder reportBuilder) {

@@ -14,9 +14,9 @@ public class CheckboxRadioAnswer {
   boolean checked;
 
   /**
-   *
-   * @param text
-   * @param checked
+   * CheckboxRadioAnswer constructor
+   * @param text text of checkbox or radiobutton
+   * @param checked flag if is check
    */
   public CheckboxRadioAnswer (String text, boolean checked) {
     this.text = text;
@@ -24,32 +24,32 @@ public class CheckboxRadioAnswer {
   }
 
   /**
-   *
-   * @return
+   * Get text
+   * @return text
    */
   public String getText() {
       return text;
   }
 
   /**
-   *
-   * @param text
+   * Set text
+   * @param text text
    */
   public void setText(String text) {
       this.text = text;
   }
 
   /**
-   *
-   * @return
+   * Is checked
+   * @return flag is checked
    */
   public boolean isChecked() {
       return checked;
   }
 
   /**
-   *
-   * @param checked
+   * Set check
+   * @param checked enable check
    */
   public void setChecked(boolean checked) {
       this.checked = checked;

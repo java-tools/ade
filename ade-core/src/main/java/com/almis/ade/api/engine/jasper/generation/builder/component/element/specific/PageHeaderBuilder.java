@@ -12,16 +12,16 @@ import javax.validation.constraints.NotNull;
 import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 
 /**
- *
+ * PageHeaderBuilder class
  * @author dfuentes
  */
 public class PageHeaderBuilder extends ElementBuilder<PageHeader, ComponentBuilder> {
 
   /**
-   *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * PageHeader build
+   * @param element PageHeader element
+   * @param jasperReportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   @SuppressWarnings("unchecked")

@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 /**
- *
+ * SpecificPrintBeanBuilderService class
  * @author dfuentes
  */
 public class SpecificPrintBeanBuilderService {
@@ -26,7 +26,7 @@ public class SpecificPrintBeanBuilderService {
 
   /**
    * Autowired constructor
-   * @param specificTemplateDataBuilderService
+   * @param specificTemplateDataBuilderService specific template of data builder
    */
   @Autowired
   public SpecificPrintBeanBuilderService(SpecificTemplateDataBuilderService specificTemplateDataBuilderService) {
@@ -36,8 +36,8 @@ public class SpecificPrintBeanBuilderService {
   /**
    * Initialize class
    *
-   * @param specificPrintBean
-   * @return
+   * @param specificPrintBean specificPrintBean
+   * @return SpecificPrintBeanBuilderService
    */
   public SpecificPrintBeanBuilderService initialize(SpecificPrintBean specificPrintBean) {
     return setSpecificPrintBean(specificPrintBean);
@@ -46,7 +46,7 @@ public class SpecificPrintBeanBuilderService {
   /**
    * Get specific print bean
    *
-   * @return
+   * @return SpecificPrintBean
    */
   public SpecificPrintBean getSpecificPrintBean() {
     return specificPrintBean;
@@ -55,8 +55,8 @@ public class SpecificPrintBeanBuilderService {
   /**
    * Set specific print bean
    *
-   * @param specificPrintBean
-   * @return
+   * @param specificPrintBean specificPrintBean
+   * @return SpecificPrintBeanBuilderService
    */
   public SpecificPrintBeanBuilderService setSpecificPrintBean(SpecificPrintBean specificPrintBean) {
     this.specificPrintBean = specificPrintBean;
@@ -66,9 +66,9 @@ public class SpecificPrintBeanBuilderService {
   /**
    * Build report and set data to export
    *
-   * @return
-   * @throws FileNotFoundException
-   * @throws JRException
+   * @return SpecificTemplateDataBuilderService
+   * @throws FileNotFoundException FileNotFoundException exception
+   * @throws JRException JRException exception
    */
   public SpecificTemplateDataBuilderService build() throws FileNotFoundException, JRException {
     JasperDesign jasperPrint = JasperFileUtil.loadFromJRXMLFile(getFile());
@@ -81,8 +81,8 @@ public class SpecificPrintBeanBuilderService {
   /**
    * Get File from specific report bean
    *
-   * @return
-   * @throws FileNotFoundException
+   * @return InputStream
+   * @throws FileNotFoundException FileNotFoundException exception
    */
   private InputStream getFile() throws FileNotFoundException {
     if(specificPrintBean.getTemplateFile() != null){

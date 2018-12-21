@@ -7,7 +7,7 @@ import java.io.File;
 import java.net.URL;
 
 /**
- *
+ * SpecificPrintBean class
  * @author dfuentes
  */
 @XmlRootElement (name="specificPrintBean")
@@ -17,17 +17,17 @@ public class SpecificPrintBean {
   private URL templateURL;
 
   /**
-   *
-   * @return
+   * Get file template
+   * @return File
    */
   public File getTemplateFile() {
     return templateFile;
   }
 
   /**
-   *
-   * @param templateFile
-   * @return
+   * Set template file
+   * @param templateFile template file
+   * @return SpecificPrintBean
    */
   public SpecificPrintBean setTemplateFile(File templateFile) {
     this.templateFile = templateFile;
@@ -35,17 +35,17 @@ public class SpecificPrintBean {
   }
 
   /**
-   *
-   * @return
+   * Get template URL
+   * @return URL
    */
   public URL getTemplateURL() {
     return templateURL;
   }
 
   /**
-   *
-   * @param templateURL
-   * @return
+   * Set template URL
+   * @param templateURL template URL
+   * @return SpecificPrintBean
    */
   public SpecificPrintBean setTemplateURL(URL templateURL) {
     this.templateURL = templateURL;

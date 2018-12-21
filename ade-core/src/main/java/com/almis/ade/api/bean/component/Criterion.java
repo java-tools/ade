@@ -16,8 +16,8 @@ public class Criterion extends Element<Criterion> {
   private String value;
 
   /**
-   *
-   * @param identifier
+   * Criterion element constructor
+   * @param identifier Criterion id
    */
   public Criterion(@NotNull String identifier) {
     super(identifier);
@@ -25,17 +25,17 @@ public class Criterion extends Element<Criterion> {
   }
 
   /**
-   *
-   * @return
+   * Get criterion title
+   * @return criterion title
    */
   public String getTitle() {
     return title;
   }
 
   /**
-   *
-   * @param title
-   * @return
+   * Set criterion title
+   * @param title criterion title
+   * @return Criterion element
    */
   public Criterion setTitle(String title) {
     this.title = title;
@@ -43,17 +43,17 @@ public class Criterion extends Element<Criterion> {
   }
 
   /**
-   *
-   * @return
+   * Get criterion value
+   * @return criterion value
    */
   public String getValue() {
     return value;
   }
 
   /**
-   *
-   * @param value
-   * @return
+   * Set criterion value
+   * @param value criterion value
+   * @return Criterion element
    */
   public Criterion setValue(String value) {
     this.value = value;

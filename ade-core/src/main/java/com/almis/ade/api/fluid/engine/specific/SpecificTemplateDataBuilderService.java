@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * SpecificTemplateDataBuilderService class
  * @author dfuentes
  */
 public class SpecificTemplateDataBuilderService {
@@ -28,7 +28,7 @@ public class SpecificTemplateDataBuilderService {
 
   /**
    * Autowired constructor
-   * @param specificTemplateExporterBuilderService
+   * @param specificTemplateExporterBuilderService specificTemplateExporterBuilderService
    */
   @Autowired
   public SpecificTemplateDataBuilderService(SpecificTemplateExporterBuilderService specificTemplateExporterBuilderService) {
@@ -38,9 +38,9 @@ public class SpecificTemplateDataBuilderService {
   /**
    * initialize class
    *
-   * @param reportBuilder
-   * @param token
-   * @return
+   * @param reportBuilder report builder
+   * @param token token
+   * @return SpecificTemplateDataBuilderService
    */
   public SpecificTemplateDataBuilderService initialize(JasperReport reportBuilder, String token) {
     this.token = token;
@@ -51,9 +51,9 @@ public class SpecificTemplateDataBuilderService {
   /**
    * set current document Name
    *
-   * @param name
+   * @param name name
    *
-   * @return
+   * @return SpecificTemplateDataBuilderService
    */
   public SpecificTemplateDataBuilderService withName(String name) {
     this.defaultName = name;
@@ -63,9 +63,9 @@ public class SpecificTemplateDataBuilderService {
   /**
    * Set current document save path
    *
-   * @param path
+   * @param path path
    *
-   * @return
+   * @return SpecificTemplateDataBuilderService
    */
   public SpecificTemplateDataBuilderService withPath(String path) {
     this.defaultPath = path.endsWith(File.separator) ? path : path + File.separator;
@@ -75,10 +75,10 @@ public class SpecificTemplateDataBuilderService {
   /**
    * Set data for report
    *
-   * @param key
-   * @param value
+   * @param key data key
+   * @param value data value
    *
-   * @return
+   * @return SpecificTemplateDataBuilderService
    */
   public SpecificTemplateDataBuilderService withData(String key, Object value) {
     if (data == null) {
@@ -91,9 +91,9 @@ public class SpecificTemplateDataBuilderService {
   /**
    * Set data for report
    *
-   * @param data
+   * @param data report data
    *
-   * @return
+   * @return SpecificTemplateDataBuilderService
    */
   public SpecificTemplateDataBuilderService withData(Map<String, Object> data) {
     if (data == null) {
@@ -105,9 +105,9 @@ public class SpecificTemplateDataBuilderService {
   /**
    * Set datasource for report
    *
-   * @param dataSource
+   * @param dataSource report data source
    *
-   * @return
+   * @return SpecificTemplateDataBuilderService
    */
   public SpecificTemplateDataBuilderService withDataSource(JRDataSource dataSource) {
     this.dataSource = dataSource;
@@ -117,7 +117,7 @@ public class SpecificTemplateDataBuilderService {
   /**
    * Get data for report
    *
-   * @return
+   * @return Data map
    */
   public Map<String, Object> getData() {
     return data;
@@ -126,7 +126,7 @@ public class SpecificTemplateDataBuilderService {
   /**
    * Get datasource for report
    *
-   * @return
+   * @return JRDataSource
    */
   public JRDataSource getDataSource() {
     return dataSource;
@@ -135,8 +135,8 @@ public class SpecificTemplateDataBuilderService {
   /**
    * Returns exporter builder instance
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService export() throws JRException {
     JasperPrint report = JasperFillManager.fillReport(this.reportBuilder, getData(), getDataSource());

@@ -3,7 +3,7 @@ package com.almis.ade.api.bean.component;
 import com.almis.ade.api.enumerate.PagingType;
 
 /**
- *
+ * Paging element class
  * @author dfuentes
  */
 public class Paging extends Element<Paging> {
@@ -11,8 +11,8 @@ public class Paging extends Element<Paging> {
   private PagingType pagingType;
 
   /**
-   *
-   * @param identifier
+   * Paging constructor
+   * @param identifier paging identifier
    */
   public Paging(String identifier) {
     super(identifier);
@@ -20,9 +20,9 @@ public class Paging extends Element<Paging> {
   }
 
   /**
-   *
-   * @param identifier
-   * @param pagingType
+   * Paging constructor
+   * @param identifier paging identifier
+   * @param pagingType paging type
    */
   public Paging(String identifier, PagingType pagingType) {
     super(identifier);
@@ -32,7 +32,7 @@ public class Paging extends Element<Paging> {
   /**
    * Get paging type
    *
-   * @return
+   * @return PagingType
    */
   public PagingType getPagingType() {
     return pagingType;
@@ -41,9 +41,9 @@ public class Paging extends Element<Paging> {
   /**
    * Set paging type
    *
-   * @param pagingType
+   * @param pagingType paging type
    *
-   * @return
+   * @return Paging element
    */
   public Paging setPagingType(PagingType pagingType) {
     this.pagingType = pagingType;

@@ -3,7 +3,7 @@ package com.almis.ade.api.bean.component;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * Text class
  * @author dfuentes
  */
 public class Text extends Element<Text> {
@@ -12,7 +12,7 @@ public class Text extends Element<Text> {
 
   /**
    *
-   * @param identifier
+   * @param identifier text identifier
    */
   public Text(@NotNull String identifier) {
     super(identifier);

@@ -19,16 +19,16 @@ import javax.validation.constraints.NotNull;
 import static net.sf.dynamicreports.report.builder.DynamicReports.*;
 
 /**
- *
+ * ColumnBuilder class
  * @author dfuentes
  */
 public class ColumnBuilder extends ElementBuilder<ReportColumn, net.sf.dynamicreports.report.builder.column.ColumnBuilder> {
 
   /**
-   *
-   * @param element
-   * @param reportBuilder
-   * @return
+   * Build column
+   * @param element column element
+   * @param reportBuilder report builder
+   * @return ColumnBuilder
    */
   @Override
   public net.sf.dynamicreports.report.builder.column.ColumnBuilder build(@NotNull ReportColumn element, JasperReportBuilder reportBuilder) {
@@ -121,10 +121,10 @@ public class ColumnBuilder extends ElementBuilder<ReportColumn, net.sf.dynamicre
 
   /**
    * Get icon column
-   * @param label
-   * @param element
-   * @param reportBuilder
-   * @return
+   * @param label icon label
+   * @param element icon element
+   * @param reportBuilder report builder
+   * @return ColumnBuilder
    */
   private net.sf.dynamicreports.report.builder.column.ColumnBuilder getIconColumn(String label, ReportColumn element, JasperReportBuilder reportBuilder) {
     Integer iconSize = element.getFontSize()  != null ? element.getFontSize() + 2 : Icon.Size.SMALL.getSize();
@@ -138,10 +138,10 @@ public class ColumnBuilder extends ElementBuilder<ReportColumn, net.sf.dynamicre
 
   /**
    * Get image column
-   * @param label
-   * @param element
-   * @param reportBuilder
-   * @return
+   * @param label column image label
+   * @param element column image element
+   * @param reportBuilder report builder
+   * @return ColumnBuilder
    */
   private net.sf.dynamicreports.report.builder.column.ColumnBuilder getImageColumn(String label, ReportColumn element, JasperReportBuilder reportBuilder) {
     Integer imageSize = element.getFontSize()  != null ? element.getFontSize() + 4 : Image.Size.VERY_SMALL.getSize();
@@ -161,7 +161,7 @@ public class ColumnBuilder extends ElementBuilder<ReportColumn, net.sf.dynamicre
    * @param label Label
    * @param element Element
    * @param reportBuilder Report builder
-   * @return
+   * @return ColumnBuilder
    */
   @SuppressWarnings("unchecked")
   private net.sf.dynamicreports.report.builder.column.ColumnBuilder getDynamicColumn(Class builderClass, Element columnElement, Integer size, String label, ReportColumn element, JasperReportBuilder reportBuilder) {

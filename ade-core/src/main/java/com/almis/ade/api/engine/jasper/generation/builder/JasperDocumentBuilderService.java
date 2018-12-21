@@ -38,8 +38,8 @@ public class JasperDocumentBuilderService {
   /**
    * Initialize variables
    *
-   * @param printBean
-   * @return
+   * @param printBean print bean
+   * @return JasperDocumentBuilderService
    */
   public JasperDocumentBuilderService initialize(PrintBean printBean){
     // Initialize builder mapper
@@ -91,7 +91,7 @@ public class JasperDocumentBuilderService {
   /**
    * Returns the current builder mapper
    *
-   * @return
+   * @return BuilderMapper
    */
   public BuilderMapper getBuilderMapper() {
     return builderMapper;
@@ -100,8 +100,8 @@ public class JasperDocumentBuilderService {
   /**
    * Build current report
    *
-   * @param printBean
-   * @return
+   * @param printBean print bean
+   * @return JasperReportBuilder
    */
   public JasperReportBuilder build(PrintBean printBean) {
     // Generate Jasper Report
@@ -111,9 +111,7 @@ public class JasperDocumentBuilderService {
   /**
    * Exports current report to a file
    *
-   * @throws IOException
-   * @throws DRException
-   * @param printBean
+   * @param printBean print bean
    */
   @SuppressWarnings("unchecked")
   private JasperReportBuilder exportFile(PrintBean printBean) {

@@ -8,16 +8,16 @@ import net.sf.dynamicreports.report.builder.component.*;
 import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 
 /**
- *
+ * Layout builder class
  * @author dfuentes
  */
 public class LayoutBuilder extends ElementBuilder<Layout, ComponentBuilder> {
 
   /**
-   *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * Layout build
+   * @param element Layout element
+   * @param jasperReportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   public ComponentBuilder build(Layout element, JasperReportBuilder jasperReportBuilder) {
@@ -57,9 +57,9 @@ public class LayoutBuilder extends ElementBuilder<Layout, ComponentBuilder> {
 
   /**
    * Get multipage layout
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * @param element layout element
+   * @param jasperReportBuilder report builder
+   * @return DimensionComponentBuilder
    */
   @SuppressWarnings("unchecked")
   private DimensionComponentBuilder getMultipageLayout(Layout element, JasperReportBuilder jasperReportBuilder) {
@@ -77,9 +77,9 @@ public class LayoutBuilder extends ElementBuilder<Layout, ComponentBuilder> {
 
   /**
    * Get horizontal layout
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * @param element layout element
+   * @param jasperReportBuilder report builder
+   * @return DimensionComponentBuilder
    */
   @SuppressWarnings("unchecked")
   private DimensionComponentBuilder getHorizontalLayout(Layout element, JasperReportBuilder jasperReportBuilder) {
@@ -101,9 +101,9 @@ public class LayoutBuilder extends ElementBuilder<Layout, ComponentBuilder> {
 
   /**
    * Get vertical layout
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * @param element layout element
+   * @param jasperReportBuilder report builder
+   * @return DimensionComponentBuilder
    */
   @SuppressWarnings("unchecked")
   private DimensionComponentBuilder getVerticalLayout(Layout element, JasperReportBuilder jasperReportBuilder) {

@@ -6,7 +6,7 @@ import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
 import net.sf.dynamicreports.report.builder.component.ComponentBuilder;
 
 /**
- *
+ * GenericTemplateBuilder class
  * @author dfuentes
  */
 public class GenericTemplateBuilder extends ElementBuilder<Element, ComponentBuilder> {
@@ -19,10 +19,10 @@ public class GenericTemplateBuilder extends ElementBuilder<Element, ComponentBui
   }
 
   /**
-   *
-   * @param element
-   * @param reportBuilder
-   * @return
+   * Template builder
+   * @param element Element
+   * @param reportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   @SuppressWarnings("unchecked")

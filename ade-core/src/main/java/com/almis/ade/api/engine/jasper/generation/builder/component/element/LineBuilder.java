@@ -17,10 +17,10 @@ import static net.sf.dynamicreports.report.builder.DynamicReports.stl;
 public class LineBuilder extends ElementBuilder<Line, ComponentBuilder> {
 
   /**
-   *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * Line build
+   * @param element line element
+   * @param jasperReportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   public ComponentBuilder build(@NotNull Line element, JasperReportBuilder jasperReportBuilder) {

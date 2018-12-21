@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
+ * Engine controller
  * @author dfuentes
  */
 @RestController
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class PrintEngineController {
 
   /**
-   *
-   * @return
+   * Retrieve engine guide info
+   * @return description
    */
   @RequestMapping("/")
   public String engineGuide(){

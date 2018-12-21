@@ -27,16 +27,16 @@ import java.util.List;
 import static net.sf.dynamicreports.report.builder.DynamicReports.*;
 
 /**
- *
+ * GridBuilder class
  * @author dfuentes
  */
 public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
 
   /**
-   *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * Get grid builder
+   * @param element ReportGrid element
+   * @param jasperReportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   @SuppressWarnings("unchecked")

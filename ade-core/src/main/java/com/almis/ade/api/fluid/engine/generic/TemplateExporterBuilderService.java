@@ -41,8 +41,8 @@ public class TemplateExporterBuilderService {
   /**
    * Initialize class
    *
-   * @param reportBuilder
-   * @return
+   * @param reportBuilder report builder
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService initialize(JasperReportBuilder reportBuilder) {
     this.reportBuilder = reportBuilder;
@@ -52,9 +52,9 @@ public class TemplateExporterBuilderService {
   /**
    * set current document Name
    *
-   * @param name
+   * @param name document name
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService withName(String name) {
     this.defaultName = name;
@@ -64,9 +64,9 @@ public class TemplateExporterBuilderService {
   /**
    * Set current document save path
    *
-   * @param path
+   * @param path document path
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService withPath(String path) {
     this.defaultPath = path.endsWith(File.separator) ? path : path + File.separator;
@@ -76,10 +76,10 @@ public class TemplateExporterBuilderService {
   /**
    * Set data for report
    *
-   * @param key
-   * @param value
+   * @param key data key
+   * @param value value data
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService withData(String key, Object value) {
     if (data == null) {
@@ -92,9 +92,9 @@ public class TemplateExporterBuilderService {
   /**
    * Set data for report
    *
-   * @param data
+   * @param data report data
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService withData(Map<String, Object> data) {
     this.data = data;
@@ -104,9 +104,9 @@ public class TemplateExporterBuilderService {
   /**
    * Set datasource for report
    *
-   * @param dataSource
+   * @param dataSource report data source
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService withDataSource(JRDataSource dataSource) {
     this.dataSource = dataSource;
@@ -116,7 +116,7 @@ public class TemplateExporterBuilderService {
   /**
    * Get data for report
    *
-   * @return
+   * @return data map
    */
   public Map<String, Object> getData() {
     return data;
@@ -125,7 +125,7 @@ public class TemplateExporterBuilderService {
   /**
    * Get datasource for report
    *
-   * @return
+   * @return JRDataSource
    */
   public JRDataSource getDataSource() {
     return dataSource;
@@ -148,7 +148,7 @@ public class TemplateExporterBuilderService {
   /**
    * Export to JRXML
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService toJRXML() {
     if (!Paths.get(getTemplatePath().replace(extensionPattern, "jrxml")).toFile().exists()) {
@@ -168,7 +168,7 @@ public class TemplateExporterBuilderService {
   /**
    * Export to JRPXML
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService toJRPXML() {
     if (!Paths.get(getTemplatePath().replace(extensionPattern, "jrpxml")).toFile().exists()) {
@@ -188,7 +188,7 @@ public class TemplateExporterBuilderService {
   /**
    * Export to Jasper
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService toJasper() {
     if (!Paths.get(getTemplatePath().replace(extensionPattern, "jasper")).toFile().exists()) {
@@ -208,8 +208,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to PDF
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toPDF() throws DRException {
     JasperPdfExporterBuilder pdfExporterBuilder = export.pdfExporter(getTemplatePath().replace(extensionPattern, "pdf"));
@@ -220,8 +220,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to XML
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toXML() throws DRException {
     JasperXmlExporterBuilder xmlExporterBuilder = export.xmlExporter(getTemplatePath().replace(extensionPattern, "xml"));
@@ -232,8 +232,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to HTML
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toHTML() throws DRException {
     JasperHtmlExporterBuilder htmlExporterBuilder = export.htmlExporter(getTemplatePath().replace(extensionPattern, "html"))
@@ -245,8 +245,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to CSV
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toCsv() throws DRException {
     JasperCsvExporterBuilder csvExporter = export.csvExporter(getTemplatePath().replace(extensionPattern, "csv"));
@@ -257,8 +257,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to DOCX
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toDocx() throws DRException {
     JasperDocxExporterBuilder docxExporterBuilder = export.docxExporter(getTemplatePath().replace(extensionPattern, "docx"))
@@ -270,8 +270,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to API XLS
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toExcel() throws DRException {
     return toXlsx();
@@ -280,8 +280,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to ODS
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toOds() throws DRException {
     JasperOdsExporterBuilder odsExporterBuilder = export.odsExporter(getTemplatePath().replace(extensionPattern, "ods"))
@@ -293,7 +293,7 @@ public class TemplateExporterBuilderService {
   /**
    * Export to PNG
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService toPng() {
     return this;
@@ -302,8 +302,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to RTF
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toRtf() throws DRException {
     JasperRtfExporterBuilder rtfExporterBuilder = export.rtfExporter(getTemplatePath().replace(extensionPattern, "rtf"));
@@ -314,8 +314,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to TXT
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toText() throws DRException {
     JasperTextExporterBuilder textExporter = export.textExporter(getTemplatePath().replace(extensionPattern, "txt"));
@@ -326,8 +326,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to XLS
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toXls() throws DRException {
     JasperXlsExporterBuilder xlsExporter = export.xlsExporter(getTemplatePath().replace(extensionPattern, "xls"))
@@ -353,8 +353,8 @@ public class TemplateExporterBuilderService {
   /**
    * Export to XLSX
    *
-   * @return
-   * @throws DRException
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toXlsx() throws DRException {
     JasperXlsxExporterBuilder xlsExporter = export.xlsxExporter(getTemplatePath().replace(extensionPattern, "xlsx"))
@@ -380,7 +380,7 @@ public class TemplateExporterBuilderService {
   /**
    * Show generated report
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService show() {
     try {
@@ -395,7 +395,7 @@ public class TemplateExporterBuilderService {
   /**
    * Show generated JRXML
    *
-   * @return
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService showJrxml() {
     try {
@@ -410,9 +410,9 @@ public class TemplateExporterBuilderService {
   /**
    * Export to PDF Stream
    *
-   * @param outputStream
-   * @return
-   * @throws DRException
+   * @param outputStream outputStream
+   * @return TemplateExporterBuilderService
+   * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toPDFStream(OutputStream outputStream) throws DRException {
     reportBuilder.setDataSource(getDataSource());

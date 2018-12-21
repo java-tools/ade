@@ -26,7 +26,7 @@ public class ImageUtil {
    * Image as input stream
    * @param imageBean Image bean
    * @return Image as stream
-   * @throws IOException
+   * @throws IOException IOException exception
    */
   public static InputStream getImageAsInputStream(Image imageBean) throws IOException {
     if (imageBean.getImageURL() != null){

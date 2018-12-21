@@ -16,25 +16,25 @@ public class PageHeader extends Element<PageHeader> {
   private Line line;
 
   /**
-   *
-   * @param identifier
+   * PageHeader constructor
+   * @param identifier page header identifier
    */
   public PageHeader(String identifier) {
     super(identifier);
   }
 
   /**
-   *
-   * @return
+   * Get logo
+   * @return Image element
    */
   public Image getLogo() {
     return logo;
   }
 
   /**
-   *
-   * @param logo
-   * @return
+   * Set logo
+   * @param logo logo
+   * @return PageHeader
    */
   public PageHeader setLogo(Image logo) {
     this.logo = logo;
@@ -42,17 +42,17 @@ public class PageHeader extends Element<PageHeader> {
   }
 
   /**
-   *
-   * @return
+   * Get page header title
+   * @return Text of page header title
    */
   public Text getTitle() {
     return title;
   }
 
   /**
-   *
-   * @param title
-   * @return
+   * Set title
+   * @param title title
+   * @return PageHeader element
    */
   public PageHeader setTitle(Text title) {
     this.title = title;
@@ -60,17 +60,17 @@ public class PageHeader extends Element<PageHeader> {
   }
 
   /**
-   *
-   * @return
+   * Get line
+   * @return Line element
    */
   public Line getLine() {
     return line;
   }
 
   /**
-   *
-   * @param line
-   * @return
+   * Set line
+   * @param line line
+   * @return PageHeader element
    */
   public PageHeader setLine(Line line) {
     this.line = line;

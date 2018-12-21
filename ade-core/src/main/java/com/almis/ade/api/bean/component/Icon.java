@@ -17,25 +17,25 @@ public class Icon extends Element<Icon> {
   private Color color;
 
   /**
-   *
-   * @param identifier
+   * Icon constructor
+   * @param identifier icon identifier
    */
   public Icon(@NotNull String identifier) {
     super(identifier);
   }
 
   /**
-   *
-   * @return
+   * Get icon name
+   * @return icon name
    */
   public String getIconName() {
     return iconName;
   }
 
   /**
-   *
-   * @param iconName
-   * @return
+   * Set icon name
+   * @param iconName icon name
+   * @return Icon element
    */
   public Icon setIconName(String iconName) {
     this.iconName = iconName;
@@ -43,17 +43,17 @@ public class Icon extends Element<Icon> {
   }
 
   /**
-   *
-   * @return
+   * Get expression
+   * @return AbstractSimpleExpression
    */
   public AbstractSimpleExpression<Renderable> getExpression() {
     return expression;
   }
 
   /**
-   *
-   * @param expression
-   * @return
+   * Set expression
+   * @param expression expression
+   * @return Icon element
    */
   public Icon setExpression(AbstractSimpleExpression<Renderable> expression) {
     this.expression = expression;
@@ -110,7 +110,7 @@ public class Icon extends Element<Icon> {
 
     /**
      * Icon size
-     * @return
+     * @return icon size
      */
     public int getSize() {
       return sizeValue;

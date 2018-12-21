@@ -58,6 +58,7 @@ public class AdeAutoConfiguration {
 
   /**
    * Specific print bean builder
+   * @param specificTemplateDataBuilderService specific template dataBuilder Service
    * @return Specific print bean builder service
    */
   @Bean
@@ -68,6 +69,7 @@ public class AdeAutoConfiguration {
 
   /**
    * Specific Template Data Builder Service
+   * @param specificTemplateExporterBuilderService specific template exporter BuilderService
    * @return Specific Template Data Builder Service
    */
   @Bean
@@ -88,6 +90,7 @@ public class AdeAutoConfiguration {
 
   /**
    * Print bean builder
+   * @param jasperEngineBuilder engine builder
    * @return Print bean builder service
    */
   @Bean
@@ -98,6 +101,8 @@ public class AdeAutoConfiguration {
 
   /**
    * Jasper Engine Builder Service
+   * @param jasperDocumentBuilderService document builder
+   * @param templateExporterBuilder template export builder
    * @return Jasper Engine Builder Service
    */
   @Bean

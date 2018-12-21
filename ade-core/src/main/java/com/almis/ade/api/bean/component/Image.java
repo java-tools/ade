@@ -28,15 +28,15 @@ public class Image extends Element<Image> {
   private AbstractSimpleExpression<Renderable> expression;
 
   /**
-   *
-   * @param identifier
+   * Image constructor
+   * @param identifier image inditifier
    */
   public Image(@NotNull String identifier) {
     super(identifier);
   }
 
   /**
-   *
+   * Initialize image element
    */
   @Override
   public void initialize() {
@@ -78,8 +78,8 @@ public class Image extends Element<Image> {
     }
 
     /**
-     *
-     * @return
+     * Get image size
+     * @return image size
      */
     public int getSize() {
       return sizeValue;
@@ -214,7 +214,7 @@ public class Image extends Element<Image> {
 
   /**
    * Get expression
-   * @return
+   * @return AbstractSimpleExpression
    */
   public AbstractSimpleExpression<Renderable> getExpression() {
     return expression;
@@ -222,8 +222,8 @@ public class Image extends Element<Image> {
 
   /**
    * Set expression
-   * @param expression
-   * @return
+   * @param expression expression
+   * @return Image element
    */
   public Image setExpression(AbstractSimpleExpression<Renderable> expression) {
     this.expression = expression;

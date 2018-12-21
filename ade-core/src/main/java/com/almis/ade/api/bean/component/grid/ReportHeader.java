@@ -17,7 +17,7 @@ public class ReportHeader extends Element<ReportHeader> implements GridHeader {
   /**
    * Constructor
    *
-   * @param identifier
+   * @param identifier ReportHeader identifier
    */
   public ReportHeader(@NotNull String identifier) {
     super(identifier);

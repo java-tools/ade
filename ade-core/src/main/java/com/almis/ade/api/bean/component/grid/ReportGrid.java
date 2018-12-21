@@ -27,7 +27,7 @@ public class ReportGrid extends Element<ReportGrid> {
   /**
    * Constructor
    *
-   * @param identifier
+   * @param identifier ReportGrid identifier
    */
   public ReportGrid(@NotNull String identifier) {
     super(identifier);
@@ -112,17 +112,17 @@ public class ReportGrid extends Element<ReportGrid> {
   }
 
   /**
-   *
-   * @return
+   * Get grid orientation
+   * @return PageOrientation
    */
   public PageOrientation getOrientation() {
     return orientation;
   }
 
   /**
-   *
-   * @param orientation
-   * @return
+   * Set grid orientation
+   * @param orientation orientation
+   * @return ReportGrid
    */
   public ReportGrid setOrientation(PageOrientation orientation) {
     this.orientation = orientation;

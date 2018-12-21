@@ -9,16 +9,16 @@ import javax.validation.constraints.NotNull;
 import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 
 /**
- *
+ * TextBuilder class
  * @author dfuentes
  */
 public class TextBuilder extends ElementBuilder<Text, TextFieldBuilder<String>> {
 
   /**
-   *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * Text build
+   * @param element Text element
+   * @param jasperReportBuilder report builder
+   * @return TextFieldBuilder
    */
   @Override
   public TextFieldBuilder<String> build(@NotNull Text element, JasperReportBuilder jasperReportBuilder) {

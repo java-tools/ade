@@ -26,10 +26,10 @@ public class JasperFileUtil {
   /**
    * Export file to .jrpxml file
    *
-   * @param report
-   * @param out
-   * @throws DRException
-   * @throws JRException
+   * @param report report builder
+   * @param out file
+   * @throws DRException DRException exception
+   * @throws JRException JRException exception
    */
   public static void exportReportToJRPXMLFile(JasperReportBuilder report, OutputStream out) throws DRException, JRException {
 
@@ -41,9 +41,9 @@ public class JasperFileUtil {
   /**
    * Export file to .jrxml file
    *
-   * @param jasperDesign
-   * @param out
-   * @throws JRException
+   * @param jasperDesign jasper design
+   * @param out path
+   * @throws JRException JRException exception
    */
   public static void exportReportToJRXMLFile(JasperDesign jasperDesign, Path out) throws JRException {
 
@@ -53,47 +53,43 @@ public class JasperFileUtil {
   /**
    * Export file to .jrxml file
    *
-   * @param report
-   * @param out
-   * @throws DRException
+   * @param report report builder
+   * @param out File output stream
+   * @throws DRException DRException exception
    */
   public static void exportReportToJRXMLFile(JasperReportBuilder report, OutputStream out) throws DRException {
-
     report.toJrXml(out);
   }
 
   /**
    * Export file to .jasper file
    *
-   * @param report
-   * @param out
-   * @throws JRException
-   * @throws DRException
+   * @param report  report builder
+   * @param out ile output stream
+   * @throws JRException JRException exception
+   * @throws DRException DRException exception
    */
   public static void exportReportToJasperFile(JasperReportBuilder report, OutputStream out) throws JRException, DRException {
-
     JasperCompileManager.compileReportToStream(report.toJasperDesign(), out);
-
   }
 
   /**
    * Load JasperPrint from .jrpxml file
    *
-   * @param inputStream
-   * @return
-   * @throws JRException
+   * @param inputStream File input stream
+   * @return JasperPrint
+   * @throws JRException JRException exception
    */
   public static JasperPrint loadFromJRPXMLFile(InputStream inputStream) throws JRException {
-
     return JRPrintXmlLoader.load(inputStream);
   }
 
   /**
    * Load JasperDesign from .jrxml file
    *
-   * @param inputStream
-   * @return
-   * @throws JRException
+   * @param inputStream File input stream
+   * @return JasperDesign
+   * @throws JRException JRException exception
    */
   public static JasperDesign loadFromJRXMLFile(InputStream inputStream) throws JRException {
     return JRXmlLoader.load(inputStream);
@@ -102,9 +98,9 @@ public class JasperFileUtil {
   /**
    * Load JasperReport from .jasper file
    *
-   * @param inputStream
-   * @return
-   * @throws JRException
+   * @param inputStream File input stream
+   * @return JasperReport
+   * @throws JRException JRException exception
    */
   public static JasperReport loadFromJasperFile(InputStream inputStream) throws JRException {
     return (JasperReport)JRLoader.loadObject(inputStream);

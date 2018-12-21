@@ -8,46 +8,44 @@ import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * ElementBuilder class
  * @author dfuentes
- * @param <T>
- * @param <D>
+ *
+ * @param <T> Object
+ * @param <D> Object
  */
 public abstract class ElementBuilder<T, D> implements IBuilderInitializer {
-  private PrintBean printBean;
 
-  /**
-   *
-   */
+  private PrintBean printBean;
   protected String identifier;
 
   /**
-   *
+   * ElementBuilder constructor
    */
   public ElementBuilder(){
     initialize();
   }
 
   /**
-   *
-   * @return
+   * Get BuilderMapper
+   * @return BuilderMapper
    */
   public BuilderMapper getBuilderMapper() {
     return BuilderMapper.getInstance();
   }
 
   /**
-   *
-   * @return
+   * Get element identifier
+   * @return element identifier
    */
   public String getIdentifier() {
     return identifier;
   }
 
   /**
-   *
-   * @param identifier
-   * @return
+   * Set element identifier
+   * @param identifier element identifier
+   * @return ElementBuilder
    */
   public ElementBuilder setIdentifier(String identifier) {
     this.identifier = identifier;
@@ -64,25 +62,25 @@ public abstract class ElementBuilder<T, D> implements IBuilderInitializer {
   //Jasper builder
 
   /**
-   *
-   * @param element
-   * @param reportBuilder
-   * @return
+   * Jasper build
+   * @param element element
+   * @param reportBuilder report builder
+   * @return Object
    */
   public abstract D build(@NotNull T element, JasperReportBuilder reportBuilder);
 
   /**
-   *
-   * @return
+   * Get print bean
+   * @return PrintBean
    */
   public PrintBean getPrintBean() {
     return printBean;
   }
 
   /**
-   *
-   * @param printBean
-   * @return
+   * Set print bean
+   * @param printBean print bean
+   * @return ElementBuilder
    */
   public ElementBuilder<T, D> setPrintBean(PrintBean printBean) {
     this.printBean = printBean;

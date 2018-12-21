@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 import java.awt.*;
 
 /**
- *
+ * Line element class
  * @author dfuentes
  */
 public class Line extends Element<Line> {
@@ -16,25 +16,25 @@ public class Line extends Element<Line> {
   private LineStyle lineStyle = null;
 
   /**
-   *
-   * @param identifier
+   * Line constructor
+   * @param identifier line identifier
    */
   public Line(@NotNull String identifier) {
     super(identifier);
   }
 
   /**
-   *
-   * @return
+   * Get line color
+   * @return Color element
    */
   public Color getLineColor() {
     return lineColor;
   }
 
   /**
-   *
-   * @param lineColor
-   * @return
+   * Set line color
+   * @param lineColor line color
+   * @return Line element
    */
   public Line setLineColor(Color lineColor) {
     this.lineColor = lineColor;
@@ -42,17 +42,17 @@ public class Line extends Element<Line> {
   }
 
   /**
-   *
-   * @return
+   * Get line width
+   * @return line width
    */
   public Float getLineWidth() {
     return lineWidth;
   }
 
   /**
-   *
-   * @param lineWidth
-   * @return
+   * Set line width
+   * @param lineWidth line width
+   * @return Line element
    */
   public Line setLineWidth(Float lineWidth) {
     this.lineWidth = lineWidth;
@@ -60,17 +60,17 @@ public class Line extends Element<Line> {
   }
 
   /**
-   *
-   * @return
+   * Get line style
+   * @return LineStyle
    */
   public LineStyle getLineStyle() {
     return lineStyle;
   }
 
   /**
-   *
-   * @param lineStyle
-   * @return
+   * Set line style
+   * @param lineStyle line style
+   * @return Line element
    */
   public Line setLineStyle(LineStyle lineStyle) {
     this.lineStyle = lineStyle;

@@ -20,10 +20,10 @@ import static net.sf.dynamicreports.report.builder.DynamicReports.stl;
 public class CriterionBuilder extends ElementBuilder<Criterion, ComponentBuilder> {
 
   /**
-   *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * Criterion component builder
+   * @param element Criterion element
+   * @param jasperReportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   @SuppressWarnings("unchecked")

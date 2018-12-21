@@ -13,16 +13,17 @@ import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 import static net.sf.dynamicreports.report.builder.DynamicReports.stl;
 
 /**
- *
+ * TitleBuilder class
  * @author dfuentes
  */
 public class TitleBuilder extends ElementBuilder<Title, ComponentBuilder> {
 
   /**
+   * Title build
    *
-   * @param element
-   * @param reportBuilder
-   * @return
+   * @param element Title element
+   * @param reportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   @SuppressWarnings("unchecked")

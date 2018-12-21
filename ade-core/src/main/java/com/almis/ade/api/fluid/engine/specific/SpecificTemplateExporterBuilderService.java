@@ -35,11 +35,11 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Initialize class
    *
-   * @param report
-   * @param path
-   * @param name
-   * @param token
-   * @return
+   * @param report JasperPrint report
+   * @param path report path
+   * @param name report name
+   * @param token report token
+   * @return SpecificTemplateExporterBuilderService
    */
   public SpecificTemplateExporterBuilderService initialize(JasperPrint report, String path, String name, String token) {
     this.report = report;
@@ -52,7 +52,7 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Get formatted template path
    *
-   * @return
+   * @return template path
    */
   public String getTemplatePath() {
     this.defaultPath = defaultPath.endsWith(File.separator) ? defaultPath : defaultPath + File.separator;
@@ -67,8 +67,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to PDF
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toPDF() throws JRException {
     JasperExportManager.exportReportToPdfFile(this.report, getTemplatePath().replace(extensionPattern, "pdf"));
@@ -78,9 +78,9 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to XML
    *
-   * @return
-   * @throws JRException
-   * @throws FileNotFoundException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
+   * @throws FileNotFoundException FileNotFoundException exception
    */
   public SpecificTemplateExporterBuilderService toXML() throws JRException, FileNotFoundException {
     JasperExportManager.exportReportToXmlStream(this.report, new FileOutputStream(new File(getTemplatePath().replace(extensionPattern, "xml"))));
@@ -90,8 +90,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to HTML
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toHTML() throws JRException {
     JasperExportManager.exportReportToHtmlFile(this.report, getTemplatePath().replace(extensionPattern, "html"));
@@ -101,8 +101,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to CSV
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toCsv() throws JRException {
     JRCsvExporter jasperCsvExporter = new JRCsvExporter();
@@ -115,8 +115,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to DOCX
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toDocx() throws JRException {
     JRDocxExporter jrDocxExporter = new JRDocxExporter();
@@ -129,8 +129,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to EXCEL
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toExcel() throws JRException {
     JRXlsxExporter jrXlsxExporter = new JRXlsxExporter();
@@ -143,8 +143,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to ODS
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toOds() throws JRException {
     JROdsExporter jrOdsExporter = new JROdsExporter();
@@ -157,9 +157,9 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to PNG
    *
-   * @return
-   * @throws JRException
-   * @throws java.io.IOException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
+   * @throws IOException IOException exception
    */
   public SpecificTemplateExporterBuilderService toPng() throws JRException, IOException {
     BufferedImage pageImage = new BufferedImage(this.report.getPageWidth() + 1, this.report.getPageHeight() + 1, BufferedImage.TYPE_INT_RGB);
@@ -176,8 +176,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to RTF
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toRtf() throws JRException {
     JRRtfExporter jrRtfExporter = new JRRtfExporter();
@@ -190,8 +190,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to TXT
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toText() throws JRException {
     JRTextExporter jrTextExporter = new JRTextExporter();
@@ -204,8 +204,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to XHTML
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toXhtml() throws JRException {
     HtmlExporter htmlExporter = new HtmlExporter();
@@ -218,8 +218,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to XLS
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toXls() throws JRException {
     JRXlsExporter jrXlsExporter = new JRXlsExporter();
@@ -232,8 +232,8 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Export to XLSX
    *
-   * @return
-   * @throws JRException
+   * @return SpecificTemplateExporterBuilderService
+   * @throws JRException JRException exception
    */
   public SpecificTemplateExporterBuilderService toXlsx() throws JRException {
     JRXlsxExporter jrXlsxExporter = new JRXlsxExporter();
@@ -246,7 +246,7 @@ public class SpecificTemplateExporterBuilderService {
   /**
    * Get file token
    *
-   * @return
+   * @return file token
    */
   public String getToken() {
     return token;

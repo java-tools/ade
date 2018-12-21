@@ -8,16 +8,16 @@ import net.sf.dynamicreports.report.builder.component.ComponentBuilder;
 import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 
 /**
- *
+ * PageBreakBuilder class
  * @author dfuentes
  */
 public class PageBreakBuilder extends ElementBuilder<PageBreak, ComponentBuilder> {
 
   /**
-   *
-   * @param element
-   * @param reportBuilder
-   * @return
+   * PageBreak build
+   * @param element PageBreak element
+   * @param reportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   public ComponentBuilder build(PageBreak element, JasperReportBuilder reportBuilder) {

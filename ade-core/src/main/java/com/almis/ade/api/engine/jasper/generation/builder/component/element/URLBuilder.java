@@ -11,7 +11,7 @@ import java.awt.*;
 import static net.sf.dynamicreports.report.builder.DynamicReports.*;
 
 /**
- *
+ * URLBuilder class
  * @author dfuentes
  */
 public class URLBuilder extends ElementBuilder<URL, ComponentBuilder> {
@@ -25,10 +25,10 @@ public class URLBuilder extends ElementBuilder<URL, ComponentBuilder> {
   }
 
   /**
-   *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * URL build
+   * @param element URL element
+   * @param jasperReportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   public ComponentBuilder build(@NotNull URL element, JasperReportBuilder jasperReportBuilder) {

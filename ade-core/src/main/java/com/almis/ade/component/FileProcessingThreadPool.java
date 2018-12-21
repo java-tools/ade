@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
 /**
- *
+ * FileProcessingThreadPool class
  * @author dfuentes
  */
 public class FileProcessingThreadPool {
@@ -27,7 +27,7 @@ public class FileProcessingThreadPool {
   private ExecutorService executorService;
 
   /**
-   *
+   * Init executor service
    */
   @PostConstruct
   public void initializeExecutorService(){
@@ -45,9 +45,9 @@ public class FileProcessingThreadPool {
   }
 
   /**
-   *
-   * @param callable
-   * @return
+   * Add file process job
+   * @param callable Callable job
+   * @return job as Future
    */
   @SuppressWarnings("unchecked")
   public Future addJob(Callable callable) {
@@ -55,24 +55,24 @@ public class FileProcessingThreadPool {
   }
 
   /**
-   *
-   * @param future
-   * @return
+   * Check if job is done
+   * @param future future job
+   * @return flag isJobDone
    */
   public boolean isJobDone(Future future) {
     return future.isDone();
   }
 
   /**
-   *
-   * @return
+   * Get if job is alibe
+   * @return isAlive flag
    */
   public boolean getIsAlive() {
     return !executorService.isShutdown();
   }
 
   /**
-   *
+   * Shutdown executor
    */
   @PreDestroy
   public void shutdownExecutorService(){

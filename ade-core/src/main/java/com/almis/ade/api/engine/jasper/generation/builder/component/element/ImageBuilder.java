@@ -24,10 +24,10 @@ import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 public class ImageBuilder extends ElementBuilder<Image, ComponentBuilder> {
 
   /**
-   *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * Image builder
+   * @param element image element
+   * @param jasperReportBuilder  report builder
+   * @return ComponentBuilder
    */
   @Override
   public ComponentBuilder build(@NotNull Image element, JasperReportBuilder jasperReportBuilder) {

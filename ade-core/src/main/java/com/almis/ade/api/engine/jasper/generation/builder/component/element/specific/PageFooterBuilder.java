@@ -19,10 +19,10 @@ import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 public class PageFooterBuilder extends ElementBuilder<PageFooter, ComponentBuilder> {
 
   /**
-   *
-   * @param element
-   * @param jasperReportBuilder
-   * @return
+   * PageFooter build
+   * @param element PageFooter element
+   * @param jasperReportBuilder report builder
+   * @return ComponentBuilder
    */
   @Override
   @SuppressWarnings("unchecked")

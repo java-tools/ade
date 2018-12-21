@@ -29,7 +29,7 @@ public class ADE {
   /**
    * Print dynamically generated report
    *
-   * @return
+   * @return PrintBeanBuilderService
    */
   public PrintBeanBuilderService printBean() {
     return printBeanBuilder;
@@ -38,8 +38,8 @@ public class ADE {
   /**
    * Print report from given JRXML file
    *
-   * @param specificPrintBean
-   * @return
+   * @param specificPrintBean specific print bean
+   * @return SpecificPrintBeanBuilderService
    */
   public SpecificPrintBeanBuilderService specificPrintBean(SpecificPrintBean specificPrintBean) {
     return specificPrintBeanBuilder.initialize(specificPrintBean);

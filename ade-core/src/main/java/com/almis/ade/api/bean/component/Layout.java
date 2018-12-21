@@ -18,9 +18,9 @@ public class Layout extends Element<Layout> {
   private Integer height;
 
   /**
-   *
-   * @param identifier
-   * @param type
+   * Layout constructor
+   * @param identifier layout identifier
+   * @param type layout type
    */
   public Layout(String identifier, LayoutType type) {
     super(identifier);
@@ -29,17 +29,17 @@ public class Layout extends Element<Layout> {
   }
 
   /**
-   *
-   * @return
+   * Get elements of layout
+   * @return Element list of layout
    */
   public List<Element> getElements() {
     return elements;
   }
 
   /**
-   *
-   * @param elements
-   * @return
+   * Set elements of layout
+   * @param elements element list of layout
+   * @return Layout
    */
   public Layout setElements(List<Element> elements) {
     this.elements = elements;
@@ -47,9 +47,9 @@ public class Layout extends Element<Layout> {
   }
 
   /**
-   *
-   * @param element
-   * @return
+   * Add element to layout
+   * @param element element
+   * @return Layout element
    */
   public Layout addElement(Element element){
     this.elements.add(element);
@@ -57,17 +57,17 @@ public class Layout extends Element<Layout> {
   }
 
   /**
-   *
-   * @return
+   * Get layout type
+   * @return LayoutType
    */
   public LayoutType getType() {
     return type;
   }
 
   /**
-   *
-   * @param type
-   * @return
+   * Set layout type
+   * @param type type
+   * @return Layout element
    */
   public Layout setType(LayoutType type) {
     this.type = type;
@@ -75,17 +75,17 @@ public class Layout extends Element<Layout> {
   }
 
   /**
-   *
-   * @return
+   * Get layout gap
+   * @return gap
    */
   public Integer getGap() {
     return gap;
   }
 
   /**
-   *
-   * @param gap
-   * @return
+   * Set layout gap
+   * @param gap gap
+   * @return Layout element
    */
   public Layout setGap(Integer gap) {
     this.gap = gap;
@@ -103,7 +103,7 @@ public class Layout extends Element<Layout> {
   /**
    * Set width
    * @param width Width
-   * @return this
+   * @return Layout element
    */
   public Layout setWidth(Integer width) {
     this.width = width;

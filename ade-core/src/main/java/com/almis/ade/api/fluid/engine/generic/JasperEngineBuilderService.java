@@ -22,8 +22,8 @@ public class JasperEngineBuilderService {
 
   /**
    * Autowired constructor
-   * @param jasperDocumentBuilderService
-   * @param templateExporterBuilder
+   * @param jasperDocumentBuilderService jasper document builder service
+   * @param templateExporterBuilder template export builder
    */
   @Autowired
   public JasperEngineBuilderService(JasperDocumentBuilderService jasperDocumentBuilderService,
@@ -35,8 +35,8 @@ public class JasperEngineBuilderService {
   /**
    * Set section builder mapping
    *
-   * @param builderMapper
-   * @return
+   * @param builderMapper builder mapper
+   * @return JasperEngineBuilderService
    */
   public JasperEngineBuilderService setSectionBuilderMapping(Map<Section, ElementBuilder> builderMapper) {
 
@@ -49,8 +49,8 @@ public class JasperEngineBuilderService {
   /**
    * Set builder mapping
    *
-   * @param builderMapper
-   * @return
+   * @param builderMapper builder mapper
+   * @return JasperEngineBuilderService
    */
   public JasperEngineBuilderService setBuilderMapping(Map<Class<? extends Element>, ElementBuilder> builderMapper) {
 
@@ -63,9 +63,9 @@ public class JasperEngineBuilderService {
   /**
    * Set section builder mapping
    *
-   * @param section
-   * @param builder
-   * @return
+   * @param section section
+   * @param builder builder
+   * @return JasperEngineBuilderService
    */
   public JasperEngineBuilderService setSectionBuilderMapping(Section section, ElementBuilder builder) {
     jasperDocumentBuilderService
@@ -77,9 +77,9 @@ public class JasperEngineBuilderService {
   /**
    * Set builder mapping
    *
-   * @param bean
-   * @param builder
-   * @return
+   * @param bean bean
+   * @param builder element builder
+   * @return JasperEngineBuilderService
    */
   public JasperEngineBuilderService setBuilderMapping(Class<? extends Element> bean, ElementBuilder builder) {
     jasperDocumentBuilderService
@@ -91,8 +91,8 @@ public class JasperEngineBuilderService {
   /**
    * Build current report and export to files
    *
-   * @param printBean
-   * @return
+   * @param printBean print bean
+   * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService buildAndExport(PrintBean printBean) {
 

@@ -23,17 +23,17 @@ public class ImageExpression extends AbstractSimpleExpression<Renderable> {
   private final transient Logger logger = LogManager.getLogger(this.getClass());
 
   /**
-   *
-   * @param field
+   * ImageExpression constructor
+   * @param field field
    */
   public ImageExpression(String field) {
     this.field = field;
   }
 
   /**
-   *
-   * @param reportParameters
-   * @return
+   * Evaluate component
+   * @param reportParameters report parameters
+   * @return Renderable
    */
   @Override
   public Renderable evaluate(ReportParameters reportParameters) {

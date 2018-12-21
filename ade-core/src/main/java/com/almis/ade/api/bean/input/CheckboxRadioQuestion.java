@@ -1,26 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.almis.ade.api.bean.input;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Checkbox radio question class
  * @author augarte
  */
 public class CheckboxRadioQuestion {
   boolean checkBox = false;
   String question;
-  List<CheckboxRadioAnswer> answerList = new ArrayList<CheckboxRadioAnswer>();
+  List<CheckboxRadioAnswer> answerList = new ArrayList<>();
   
   /**
-   *
-   * @param question
-   * @param checkBox
+   * CheckboxRadioQuestion constructor
+   * @param question question
+   * @param checkBox checkBox
    */
   public CheckboxRadioQuestion (String question, boolean checkBox) {
     this.question = question;
@@ -28,55 +23,55 @@ public class CheckboxRadioQuestion {
   }
   
   /**
-   *
+   * Default constructor
    */
   public CheckboxRadioQuestion () {
-      
+      // Default constructor
   }
 
   /**
-   *
-   * @return
+   * Flag to indicate if element is a checkbox
+   * @return is checkbox
    */
   public boolean isCheckBox() {
       return checkBox;
   }
 
   /**
-   *
-   * @param checkBox
+   * Set checkbox flag
+   * @param checkBox checkbox flag
    */
   public void setIsCheckBox(boolean checkBox) {
       this.checkBox = checkBox;
   }
 
   /**
-   *
-   * @return
+   * Get question
+   * @return question
    */
   public String getQuestion() {
       return question;
   }
 
   /**
-   *
-   * @param question
+   * Set question
+   * @param question question
    */
   public void setQuestion(String question) {
       this.question = question;
   }
 
   /**
-   *
-   * @return
+   * Get answer list
+   * @return answer list
    */
   public List<CheckboxRadioAnswer> getAnswerList() {
         return answerList;
     }
 
   /**
-   *
-   * @param answerList
+   * Set answer list
+   * @param answerList answer list
    */
   public void setAnswerList(List<CheckboxRadioAnswer> answerList) {
         this.answerList = answerList;

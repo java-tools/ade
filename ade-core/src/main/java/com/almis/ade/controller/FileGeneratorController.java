@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
+ * FileGeneratorController class
  * @author dfuentes
  */
 @RestController
@@ -23,8 +23,8 @@ public class FileGeneratorController {
 
   /**
    * Generate a specific report
-   * @param specificPrintBean
-   * @return
+   * @param specificPrintBean print bean
+   * @return SpecificPrintBean
    */
   @RequestMapping(path = "/specific", produces = "application/json")
   public SpecificPrintBean printSpecificReport(@RequestParam ("printBean") SpecificPrintBean specificPrintBean){

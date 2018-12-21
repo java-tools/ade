@@ -1,6 +1,8 @@
 package com.almis.ade.api.bean.component;
 
 /**
+ * QRCode class
+ *
  * @author dfuentes
  */
 public class QRCode extends Element<QRCode> {
@@ -8,14 +10,17 @@ public class QRCode extends Element<QRCode> {
   private String code;
 
   /**
-   * @param identifier
+   * QRCode constructor
+   * @param identifier QRCode identifier
    */
   public QRCode(String identifier) {
     super(identifier);
   }
 
   /**
-   * @param identifier
+   *  QRCode constructor
+   * @param identifier QRCode identifier
+   * @param code QRCode identifier
    */
   public QRCode(String identifier, String code) {
     super(identifier);
@@ -26,7 +31,7 @@ public class QRCode extends Element<QRCode> {
   /**
    * Get Code
    *
-   * @return
+   * @return string code
    */
   public String getCode() {
     return code;
@@ -35,9 +40,9 @@ public class QRCode extends Element<QRCode> {
   /**
    * Set code
    *
-   * @param code
+   * @param code code
    *
-   * @return
+   * @return QRCode
    */
   public QRCode setCode(String code) {
     this.code = code;
