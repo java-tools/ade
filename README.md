@@ -1,3 +1,4 @@
+[![pipeline status](https://gitlab.com/awe-team/ade/badges/master/pipeline.svg)](https://gitlab.com/awe-team/ade/commits/master)
 # Almis Document Engine
 
 ADE is the report generation library used by the **AWE** Web application development framework. It allows to print the information shown on the UI and generate the documents in the main PDF, DOCX, XLSX, ...
