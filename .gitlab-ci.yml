@@ -1,7 +1,7 @@
 image: maven:latest
 
 variables:
-  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode -Dgpg.passphrase=$GPG_PASSPHRASE"
+  MAVEN_CLI_OPTS: "-X -s .m2/settings.xml --batch-mode -Dgpg.passphrase=$GPG_PASSPHRASE"
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
 cache:
@@ -22,6 +22,7 @@ test:
 deploy:
   stage: deploy
   script:
+    - gpg --version
     - mvn $MAVEN_CLI_OPTS deploy
   only:
     - master
