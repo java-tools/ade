@@ -1,7 +1,7 @@
 image: maven:latest
 
 variables:
-  MAVEN_CLI_OPTS: "-s .m2/settings.xml -X"
+  MAVEN_CLI_OPTS: "-s .m2/settings.xml"
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
 cache:
@@ -21,7 +21,7 @@ test:
 
 deploy:
   variables:
-    CI_DEBUG_TRACE: "true"
+    CI_DEBUG_TRACE: "false"
   stage: deploy
   before_script:
     - gpg --batch --import <(cat "$GPG_PRIVATE_KEY")
