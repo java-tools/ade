@@ -22,7 +22,8 @@ test:
 deploy:
   stage: deploy
   before_script:
-    - echo $GPG_SECRET_KEY | gpg --batch --import
+    - export
+    - echo $GPG_KEY | gpg --batch --import
   script:
     - mvn $MAVEN_CLI_OPTS deploy
   only:
