@@ -24,7 +24,7 @@ deploy:
     CI_DEBUG_TRACE: "true"
   stage: deploy
   before_script:
-    - gpg -v --batch --import <(echo "$GPG_PRIVATE_KEY")
+    - gpg -v --batch --import <(cat "$GPG_PRIVATE_KEY")
   script:
     - mvn $MAVEN_CLI_OPTS deploy
   only:
