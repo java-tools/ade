@@ -1,5 +1,8 @@
-[![pipeline status](https://gitlab.com/awe-team/ade/badges/master/pipeline.svg)](https://gitlab.com/awe-team/ade/commits/master)
 # Almis Document Engine
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.almis.ade/ade.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.almis.ade%22%20AND%20a:%22ade%22)
+[![pipeline status](https://gitlab.com/awe-team/ade/badges/master/pipeline.svg)](https://gitlab.com/awe-team/ade/commits/master)
+
 
 ADE is the report generation library used by the **AWE** Web application development framework. It allows to print the information shown on the UI and generate the documents in the main PDF, DOCX, XLSX, ...
 
