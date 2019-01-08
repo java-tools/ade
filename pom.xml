@@ -198,7 +198,6 @@
       <id>snapshots</id>
       <name>Snapshots</name>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-      <uniqueVersion>false</uniqueVersion>
     </snapshotRepository>
   </distributionManagement>
 
