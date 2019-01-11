@@ -6,7 +6,7 @@ import com.almis.ade.api.fluid.SpecificPrintBeanBuilderService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- *
+ * ADE API Base File
  * @author dfuentes
  */
 public class ADE {
