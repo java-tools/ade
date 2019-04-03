@@ -67,6 +67,12 @@
       <groupId>org.apache.xmlgraphics</groupId>
       <artifactId>batik-bridge</artifactId>
       <version>1.9.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.python</groupId>
+          <artifactId>jython</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <!-- Log4j2 -->
