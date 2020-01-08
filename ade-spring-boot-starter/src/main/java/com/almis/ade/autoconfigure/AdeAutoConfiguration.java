@@ -3,11 +3,10 @@ package com.almis.ade.autoconfigure;
 import com.almis.ade.api.ADE;
 import com.almis.ade.api.engine.jasper.generation.builder.JasperDocumentBuilderService;
 import com.almis.ade.api.fluid.PrintBeanBuilderService;
-import com.almis.ade.api.fluid.SpecificPrintBeanBuilderService;
+import com.almis.ade.api.fluid.ReportBeanBuilderService;
 import com.almis.ade.api.fluid.engine.generic.JasperEngineBuilderService;
 import com.almis.ade.api.fluid.engine.generic.TemplateExporterBuilderService;
-import com.almis.ade.api.fluid.engine.specific.SpecificTemplateDataBuilderService;
-import com.almis.ade.api.fluid.engine.specific.SpecificTemplateExporterBuilderService;
+import com.almis.ade.api.fluid.engine.specific.ReportExporterBuilderService;
 import com.almis.ade.api.util.IconUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -40,7 +39,7 @@ public class AdeAutoConfiguration {
    */
   @Bean
   @ConditionalOnMissingBean
-  public ADE ade(SpecificPrintBeanBuilderService specificPrintBeanBuilder, PrintBeanBuilderService printBeanBuilder) {
+  public ADE ade(ReportBeanBuilderService specificPrintBeanBuilder, PrintBeanBuilderService printBeanBuilder) {
     return new ADE(specificPrintBeanBuilder, printBeanBuilder);
   }
 
@@ -57,35 +56,24 @@ public class AdeAutoConfiguration {
   /////////////////////////////////////////////
 
   /**
-   * Specific print bean builder
-   * @param specificTemplateDataBuilderService specific template dataBuilder Service
-   * @return Specific print bean builder service
+   * Report bean exporter
+   * @param reportExporterBuilderService Report exporter builder service
+   * @return Report bean builder service
    */
   @Bean
   @ConditionalOnMissingBean
-  public SpecificPrintBeanBuilderService specificPrintBeanBuilderService(SpecificTemplateDataBuilderService specificTemplateDataBuilderService) {
-    return new SpecificPrintBeanBuilderService(specificTemplateDataBuilderService);
+  public ReportBeanBuilderService reportBeanBuilderService(ReportExporterBuilderService reportExporterBuilderService) {
+    return new ReportBeanBuilderService(reportExporterBuilderService);
   }
 
   /**
-   * Specific Template Data Builder Service
-   * @param specificTemplateExporterBuilderService specific template exporter BuilderService
-   * @return Specific Template Data Builder Service
+   * Report exporter builder service
+   * @return Specific report Exporter Builder Service
    */
   @Bean
   @ConditionalOnMissingBean
-  public SpecificTemplateDataBuilderService specificTemplateDataBuilderService(SpecificTemplateExporterBuilderService specificTemplateExporterBuilderService) {
-    return new SpecificTemplateDataBuilderService(specificTemplateExporterBuilderService);
-  }
-
-  /**
-   * Specific Template Exporter Builder Service
-   * @return Specific Template Exporter Builder Service
-   */
-  @Bean
-  @ConditionalOnMissingBean
-  public SpecificTemplateExporterBuilderService specificTemplateExporterBuilderService() {
-    return new SpecificTemplateExporterBuilderService();
+  public ReportExporterBuilderService reportExporterBuilderService() {
+    return new ReportExporterBuilderService();
   }
 
   /**

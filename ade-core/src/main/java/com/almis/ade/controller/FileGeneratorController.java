@@ -1,6 +1,6 @@
 package com.almis.ade.controller;
 
-import com.almis.ade.api.bean.input.SpecificPrintBean;
+import com.almis.ade.api.bean.input.TemplateBean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,11 +23,11 @@ public class FileGeneratorController {
 
   /**
    * Generate a specific report
-   * @param specificPrintBean print bean
+   * @param templateBean print bean
    * @return SpecificPrintBean
    */
   @RequestMapping(path = "/specific", produces = "application/json")
-  public SpecificPrintBean printSpecificReport(@RequestParam ("printBean") SpecificPrintBean specificPrintBean){
-    return specificPrintBean;
+  public TemplateBean printSpecificReport(@RequestParam ("printBean") TemplateBean templateBean){
+    return templateBean;
   }
 }

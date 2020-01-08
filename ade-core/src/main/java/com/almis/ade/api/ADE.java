@@ -1,8 +1,8 @@
 package com.almis.ade.api;
 
-import com.almis.ade.api.bean.input.SpecificPrintBean;
+import com.almis.ade.api.bean.input.ReportBean;
 import com.almis.ade.api.fluid.PrintBeanBuilderService;
-import com.almis.ade.api.fluid.SpecificPrintBeanBuilderService;
+import com.almis.ade.api.fluid.ReportBeanBuilderService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -12,17 +12,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ADE {
 
   // Autowired services
-  private SpecificPrintBeanBuilderService specificPrintBeanBuilder;
+  private ReportBeanBuilderService reportBeanBuilderService;
   private PrintBeanBuilderService printBeanBuilder;
 
   /**
    * Autowired constructor
-   * @param specificPrintBeanBuilder Specific print bean service
+   * @param reportBeanBuilderService Specific print bean service
    * @param printBeanBuilder Print bean service
    */
   @Autowired
-  public ADE(SpecificPrintBeanBuilderService specificPrintBeanBuilder, PrintBeanBuilderService printBeanBuilder) {
-    this.specificPrintBeanBuilder = specificPrintBeanBuilder;
+  public ADE(ReportBeanBuilderService reportBeanBuilderService, PrintBeanBuilderService printBeanBuilder) {
+    this.reportBeanBuilderService = reportBeanBuilderService;
     this.printBeanBuilder = printBeanBuilder;
   }
 
@@ -38,10 +38,10 @@ public class ADE {
   /**
    * Print report from given JRXML file
    *
-   * @param specificPrintBean specific print bean
-   * @return SpecificPrintBeanBuilderService
+   * @param reportBean specific report bean
+   * @return ReportBeanBuilderService
    */
-  public SpecificPrintBeanBuilderService specificPrintBean(SpecificPrintBean specificPrintBean) {
-    return specificPrintBeanBuilder.initialize(specificPrintBean);
+  public ReportBeanBuilderService reportBean(ReportBean reportBean) {
+    return reportBeanBuilderService.initialize(reportBean);
   }
 }
