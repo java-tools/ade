@@ -3,6 +3,7 @@ package com.almis.ade.api.bean.input;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.springframework.core.io.Resource;
 
 import java.util.Collection;
 import java.util.Map;
@@ -18,6 +19,6 @@ public class TemplateBean {
   // JasperPrint generation
   private Collection data;
   private Map<String, Object> parameters;
-  private String templatePath;
+  private Resource template;
   private String templateName;
 }

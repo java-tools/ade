@@ -71,7 +71,7 @@ public class ReportBeanBuilderService {
    */
   private JasperPrint compileTemplate(TemplateBean templateBean) {
     try {
-      JasperReport report = JasperCompileManager.compileReport(Paths.get(templateBean.getTemplatePath(), templateBean.getTemplateName() + ".jrxml").toString());
+      JasperReport report = JasperCompileManager.compileReport(templateBean.getTemplate().getInputStream());
 
       // Generate collection if defined
       JRDataSource data = new JREmptyDataSource();

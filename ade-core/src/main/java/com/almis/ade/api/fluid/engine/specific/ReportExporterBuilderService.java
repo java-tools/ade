@@ -54,7 +54,7 @@ public class ReportExporterBuilderService {
       //Throw exception, couldn't create directories
     }
 
-    return defaultPath + defaultName + "." + extensionPattern;
+    return defaultPath + (defaultName != null ? defaultName + "." + extensionPattern : "");
   }
 
   /**
