@@ -6,8 +6,6 @@ import lombok.extern.log4j.Log4j2;
 import net.sf.dynamicreports.report.base.expression.AbstractSimpleExpression;
 import net.sf.dynamicreports.report.definition.ReportParameters;
 import net.sf.jasperreports.renderers.Renderable;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.awt.*;
 
@@ -59,7 +57,7 @@ public class IconExpression extends AbstractSimpleExpression<Renderable> {
       Color iconColor = IconUtil.extractColor(iconStyle);
       return IconUtil.renderIcon(iconSvg, iconColor);
     } catch (Exception exc) {
-      logger.warn("Error retrieving icon file: {}", iconName, exc);
+      log.warn("Error retrieving icon file: {}", iconName, exc);
     }
     return null;
   }

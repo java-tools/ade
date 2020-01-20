@@ -32,6 +32,7 @@ public class ReportExporterBuilderService {
    * @param reportList JasperPrint report list
    * @param path report path
    * @param name report name
+   * @param password report password (for file encoding)
    * @return SpecificTemplateExporterBuilderService
    */
   public ReportExporterBuilderService initialize(List<JasperPrint> reportList, String path, String name, String password) {
