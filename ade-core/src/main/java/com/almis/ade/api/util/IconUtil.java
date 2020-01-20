@@ -1,9 +1,8 @@
 package com.almis.ade.api.util;
 
+import lombok.extern.log4j.Log4j2;
 import net.sf.jasperreports.renderers.Renderable;
 import org.apache.commons.io.IOUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.core.env.Environment;
 
 import java.awt.*;
@@ -16,8 +15,8 @@ import java.util.regex.Pattern;
 /**
  * Icon utilities
  */
+@Log4j2
 public class IconUtil {
-  private static final Logger logger = LogManager.getLogger(IconUtil.class);
 
   // Environment
   private static String defaultIconPath;
@@ -26,10 +25,12 @@ public class IconUtil {
   /**
    * Hide the constructor
    */
-  private IconUtil() {}
+  private IconUtil() {
+  }
 
   /**
    * Initialize Utility class
+   *
    * @param springEnvironment Spring environment
    */
   public static void init(Environment springEnvironment) {
@@ -40,6 +41,7 @@ public class IconUtil {
 
   /**
    * Extract icon from iconValue
+   *
    * @param iconValue Icon value
    * @return Icon extracted
    */
@@ -57,6 +59,7 @@ public class IconUtil {
 
   /**
    * Extract color from iconStyle
+   *
    * @param iconStyle Icon style
    * @return extracted color
    */
@@ -80,6 +83,7 @@ public class IconUtil {
 
   /**
    * Extract color from iconStyle
+   *
    * @param iconStyle Icon style
    * @return extracted color
    */
@@ -90,33 +94,35 @@ public class IconUtil {
     Matcher matcher = pattern.matcher(iconStyle);
     if (matcher.find()) {
       String[] colorList = matcher.group(1).split(",");
-      color = new Color(Integer.valueOf(colorList[0]),
-              Integer.valueOf(colorList[1]),
-              Integer.valueOf(colorList[2]),
-              Integer.valueOf(colorList[3]));
+      color = new Color(Integer.parseInt(colorList[0]),
+        Integer.parseInt(colorList[1]),
+        Integer.parseInt(colorList[2]),
+        Integer.parseInt(colorList[3]));
     }
     return color;
   }
 
   /**
    * Add color to icon
-   * @param icon Icon as string
+   *
+   * @param icon  Icon as string
    * @param color Color to add
    * @return icon with color
    */
   private static String addColor(String icon, Color color) {
     StringBuilder builder = new StringBuilder();
     builder.append(" fill=\"#")
-            .append(Integer.toHexString(color.getRed()))
-            .append(Integer.toHexString(color.getGreen()))
-            .append(Integer.toHexString(color.getBlue())).append("\" fill-opacity=\"")
-            .append(color.getAlpha()/255f).append("\"></path>");
+      .append(Integer.toHexString(color.getRed()))
+      .append(Integer.toHexString(color.getGreen()))
+      .append(Integer.toHexString(color.getBlue())).append("\" fill-opacity=\"")
+      .append(color.getAlpha() / 255f).append("\"></path>");
     return icon.replace("></path>", builder.toString());
   }
 
   /**
    * Render icon to svg
-   * @param icon string icon
+   *
+   * @param icon  string icon
    * @param color color element
    * @return Renderable
    */
@@ -132,6 +138,7 @@ public class IconUtil {
 
   /**
    * Get icon from file
+   *
    * @param iconName icon name
    * @return Icon as string
    */
@@ -143,7 +150,7 @@ public class IconUtil {
         icon = new String(IOUtils.toByteArray(inputStream), StandardCharsets.UTF_8);
       }
     } catch (IOException exc) {
-      logger.warn("Error retrieving icon file: " + iconPath, exc);
+      log.warn("Error retrieving icon file: {}", iconPath, exc);
     }
     return icon;
   }

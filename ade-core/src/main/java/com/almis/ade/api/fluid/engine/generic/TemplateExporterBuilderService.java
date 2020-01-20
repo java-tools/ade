@@ -1,13 +1,12 @@
 package com.almis.ade.api.fluid.engine.generic;
 
 import com.almis.ade.api.util.JasperFileUtil;
+import lombok.extern.log4j.Log4j2;
 import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
 import net.sf.dynamicreports.jasper.builder.export.*;
 import net.sf.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.File;
@@ -24,15 +23,14 @@ import static net.sf.dynamicreports.report.builder.DynamicReports.export;
 /**
  * Template exporter builder service
  */
+@Log4j2
 public class TemplateExporterBuilderService {
-  @Value ("${ade.document.default.path:documents}")
+  @Value("${ade.document.default.path:documents}")
   private String defaultPath;
-  @Value ("${ade.document.default.name:document}")
+  @Value("${ade.document.default.name:document}")
   private String defaultName;
-  @Value ("${ade.document.extension.pattern:{extension}}")
+  @Value("${ade.document.extension.pattern:{extension}}")
   private String extensionPattern;
-
-  private final Logger logger = LogManager.getLogger(this.getClass());
 
   private JasperReportBuilder reportBuilder;
   private Map<String, Object> data;
@@ -53,7 +51,6 @@ public class TemplateExporterBuilderService {
    * set current document Name
    *
    * @param name document name
-   *
    * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService withName(String name) {
@@ -65,7 +62,6 @@ public class TemplateExporterBuilderService {
    * Set current document save path
    *
    * @param path document path
-   *
    * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService withPath(String path) {
@@ -76,9 +72,8 @@ public class TemplateExporterBuilderService {
   /**
    * Set data for report
    *
-   * @param key data key
+   * @param key   data key
    * @param value value data
-   *
    * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService withData(String key, Object value) {
@@ -93,7 +88,6 @@ public class TemplateExporterBuilderService {
    * Set data for report
    *
    * @param data report data
-   *
    * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService withData(Map<String, Object> data) {
@@ -105,7 +99,6 @@ public class TemplateExporterBuilderService {
    * Set datasource for report
    *
    * @param dataSource report data source
-   *
    * @return TemplateExporterBuilderService
    */
   public TemplateExporterBuilderService withDataSource(JRDataSource dataSource) {
@@ -133,6 +126,7 @@ public class TemplateExporterBuilderService {
 
   /**
    * Retrieve template path
+   *
    * @return Template path
    */
   public String getTemplatePath() {
@@ -153,13 +147,13 @@ public class TemplateExporterBuilderService {
   public TemplateExporterBuilderService toJRXML() {
     if (!Paths.get(getTemplatePath().replace(extensionPattern, "jrxml")).toFile().exists()) {
       // Save the template to a File
-      File jrxmlFile =  new File(getTemplatePath().replace(extensionPattern, "jrxml"));
+      File jrxmlFile = new File(getTemplatePath().replace(extensionPattern, "jrxml"));
       try (OutputStream jrxmlFileStream = new FileOutputStream(jrxmlFile)) {
         // Export to jasperPrint file
         JasperFileUtil.exportReportToJRXMLFile(reportBuilder, jrxmlFileStream);
-        logger.info("JRXML file generated");
+        log.info("JRXML file generated");
       } catch (IOException | DRException exc) {
-        logger.error("Error exporting to JRXML - {0}", getTemplatePath(), exc);
+        log.error("Error exporting to JRXML - {}", getTemplatePath(), exc);
       }
     }
     return this;
@@ -173,13 +167,13 @@ public class TemplateExporterBuilderService {
   public TemplateExporterBuilderService toJRPXML() {
     if (!Paths.get(getTemplatePath().replace(extensionPattern, "jrpxml")).toFile().exists()) {
       // Save the template to a File
-      File jprxmlFile =  new File(getTemplatePath().replace(extensionPattern, "jrpxml"));
+      File jprxmlFile = new File(getTemplatePath().replace(extensionPattern, "jrpxml"));
       try (OutputStream jrpxmlFileStream = new FileOutputStream(jprxmlFile)) {
         // Export to jasperPrint file
         JasperFileUtil.exportReportToJRPXMLFile(reportBuilder, jrpxmlFileStream);
-        logger.info( "JRPXML file generated");
+        log.info("JRPXML file generated");
       } catch (IOException | JRException | DRException exc) {
-        logger.error("Error exporting to JRPXML - {0}", getTemplatePath(), exc);
+        log.error("Error exporting to JRPXML - {}", getTemplatePath(), exc);
       }
     }
     return this;
@@ -193,13 +187,13 @@ public class TemplateExporterBuilderService {
   public TemplateExporterBuilderService toJasper() {
     if (!Paths.get(getTemplatePath().replace(extensionPattern, "jasper")).toFile().exists()) {
       // Save the template to a File
-      File jasperFile =  new File(getTemplatePath().replace(extensionPattern, "jasper"));
+      File jasperFile = new File(getTemplatePath().replace(extensionPattern, "jasper"));
       try (OutputStream jasperFileStream = new FileOutputStream(jasperFile)) {
         // Export to jasperPrint file
         JasperFileUtil.exportReportToJasperFile(reportBuilder, jasperFileStream);
-        logger.info("Jasper file generated");
+        log.info("Jasper file generated");
       } catch (IOException | JRException | DRException exc) {
-        logger.error("Error exporting to Jasper - {0}", getTemplatePath(), exc);
+        log.error("Error exporting to Jasper - {}", getTemplatePath(), exc);
       }
     }
     return this;
@@ -237,7 +231,7 @@ public class TemplateExporterBuilderService {
    */
   public TemplateExporterBuilderService toHTML() throws DRException {
     JasperHtmlExporterBuilder htmlExporterBuilder = export.htmlExporter(getTemplatePath().replace(extensionPattern, "html"))
-            .setAccessibleHtml(true);
+      .setAccessibleHtml(true);
     reportBuilder.toHtml(htmlExporterBuilder);
     return this;
   }
@@ -262,7 +256,7 @@ public class TemplateExporterBuilderService {
    */
   public TemplateExporterBuilderService toDocx() throws DRException {
     JasperDocxExporterBuilder docxExporterBuilder = export.docxExporter(getTemplatePath().replace(extensionPattern, "docx"))
-            .setFramesAsNestedTables(true);
+      .setFramesAsNestedTables(true);
     reportBuilder.toDocx(docxExporterBuilder);
     return this;
   }
@@ -285,7 +279,7 @@ public class TemplateExporterBuilderService {
    */
   public TemplateExporterBuilderService toOds() throws DRException {
     JasperOdsExporterBuilder odsExporterBuilder = export.odsExporter(getTemplatePath().replace(extensionPattern, "ods"))
-            .setFlexibleRowHeight(true);
+      .setFlexibleRowHeight(true);
     reportBuilder.toOds(odsExporterBuilder);
     return this;
   }
@@ -331,22 +325,22 @@ public class TemplateExporterBuilderService {
    */
   public TemplateExporterBuilderService toXls() throws DRException {
     JasperXlsExporterBuilder xlsExporter = export.xlsExporter(getTemplatePath().replace(extensionPattern, "xls"))
-            .setIgnorePageMargins(true)
-            .setWhitePageBackground(false)
-            .setRemoveEmptySpaceBetweenRows(true)
-            .setRemoveEmptySpaceBetweenColumns(true)
-            .setFontSizeFixEnabled(false)
-            .setImageBorderFixEnabled(true)
-            .setDetectCellType(true)
-            .setWrapText(false);
+      .setIgnorePageMargins(true)
+      .setWhitePageBackground(false)
+      .setRemoveEmptySpaceBetweenRows(true)
+      .setRemoveEmptySpaceBetweenColumns(true)
+      .setFontSizeFixEnabled(false)
+      .setImageBorderFixEnabled(true)
+      .setDetectCellType(true)
+      .setWrapText(false);
 
     // Remove headers and footers
     reportBuilder
-            .setPageHeaderPrintWhenExpression(exp.value(Boolean.FALSE))
-            .setPageFooterPrintWhenExpression(exp.value(Boolean.FALSE))
-            .ignorePageWidth()
-            .ignorePagination()
-            .toXls(xlsExporter);
+      .setPageHeaderPrintWhenExpression(exp.value(Boolean.FALSE))
+      .setPageFooterPrintWhenExpression(exp.value(Boolean.FALSE))
+      .ignorePageWidth()
+      .ignorePagination()
+      .toXls(xlsExporter);
     return this;
   }
 
@@ -358,22 +352,22 @@ public class TemplateExporterBuilderService {
    */
   public TemplateExporterBuilderService toXlsx() throws DRException {
     JasperXlsxExporterBuilder xlsExporter = export.xlsxExporter(getTemplatePath().replace(extensionPattern, "xlsx"))
-            .setIgnorePageMargins(true)
-            .setWhitePageBackground(false)
-            .setRemoveEmptySpaceBetweenRows(true)
-            .setRemoveEmptySpaceBetweenColumns(true)
-            .setFontSizeFixEnabled(false)
-            .setImageBorderFixEnabled(true)
-            .setDetectCellType(true)
-            .setWrapText(false);
+      .setIgnorePageMargins(true)
+      .setWhitePageBackground(false)
+      .setRemoveEmptySpaceBetweenRows(true)
+      .setRemoveEmptySpaceBetweenColumns(true)
+      .setFontSizeFixEnabled(false)
+      .setImageBorderFixEnabled(true)
+      .setDetectCellType(true)
+      .setWrapText(false);
 
     // Remove headers and footers
     reportBuilder
-            .setPageHeaderPrintWhenExpression(exp.value(Boolean.FALSE))
-            .setPageFooterPrintWhenExpression(exp.value(Boolean.FALSE))
-            .ignorePageWidth()
-            .ignorePagination()
-            .toXlsx(xlsExporter);
+      .setPageHeaderPrintWhenExpression(exp.value(Boolean.FALSE))
+      .setPageFooterPrintWhenExpression(exp.value(Boolean.FALSE))
+      .ignorePageWidth()
+      .ignorePagination()
+      .toXlsx(xlsExporter);
     return this;
   }
 
@@ -385,9 +379,9 @@ public class TemplateExporterBuilderService {
   public TemplateExporterBuilderService show() {
     try {
       this.reportBuilder
-              .show();
+        .show();
     } catch (DRException exc) {
-      logger.error("Error showing output", exc);
+      log.error("Error showing output", exc);
     }
     return this;
   }
@@ -400,9 +394,9 @@ public class TemplateExporterBuilderService {
   public TemplateExporterBuilderService showJrxml() {
     try {
       this.reportBuilder
-              .showJrXml();
+        .showJrXml();
     } catch (DRException exc) {
-      logger.error("Error showing JRXML", exc);
+      log.error("Error showing JRXML", exc);
     }
     return this;
   }

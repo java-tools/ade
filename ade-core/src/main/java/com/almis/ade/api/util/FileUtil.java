@@ -1,6 +1,6 @@
 package com.almis.ade.api.util;
 
-import org.apache.logging.log4j.LogManager;
+import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,23 +9,26 @@ import java.net.URL;
 /**
  * File utilities
  */
+@Log4j2
 public class FileUtil {
 
   /**
    * Private constructor to avoid instantiation
    */
-  private FileUtil() {}
+  private FileUtil() {
+  }
 
   /**
    * Retrieve a file from an URL
+   *
    * @param url file url
    * @return input stream of file
    */
-  public static InputStream getFileFromURL(URL url){
+  public static InputStream getFileFromURL(URL url) {
     try {
       return url.openStream();
     } catch (IOException exc) {
-      LogManager.getLogger(FileUtil.class).error("Error opening url Stream - {0}", url, exc);
+      log.error("Error opening url Stream - {}", url, exc);
     }
 
     return null;
@@ -33,10 +36,11 @@ public class FileUtil {
 
   /**
    * Retrieve a file from an URL
+   *
    * @param path File path
    * @return Resource as stream
    */
-  public static InputStream getResourceAsStream(String path){
+  public static InputStream getResourceAsStream(String path) {
     return Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
   }
 }

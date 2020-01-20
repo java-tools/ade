@@ -1,6 +1,6 @@
 package com.almis.ade.api.util;
 
-import org.apache.logging.log4j.LogManager;
+import lombok.extern.log4j.Log4j2;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -10,22 +10,24 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- *
  * @author dfuentes
  */
+@Log4j2
 public class HashUtil {
 
   /**
    * Private constructor to avoid instantiation
    */
-  private HashUtil() {}
+  private HashUtil() {
+  }
 
   /**
    * Hash an object
+   *
    * @param o Object
    * @return Object hash
    */
-  public static String hashObject(Object o){
+  public static String hashObject(Object o) {
     try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
          ObjectOutput out = new ObjectOutputStream(bos)) {
       out.writeObject(o);
@@ -34,13 +36,14 @@ public class HashUtil {
 
       return sha256(data);
     } catch (IOException | NoSuchAlgorithmException exc) {
-      LogManager.getLogger(HashUtil.class).error("Error generating HASH - {0}", o, exc);
+      log.error("Error generating HASH - {}", o, exc);
     }
     return null;
   }
 
   /**
    * Hash with SHA256
+   *
    * @param data Data
    * @return Data hash
    * @throws NoSuchAlgorithmException NoSuchAlgorithmException exception

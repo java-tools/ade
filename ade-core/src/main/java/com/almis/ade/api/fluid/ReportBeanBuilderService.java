@@ -81,7 +81,7 @@ public class ReportBeanBuilderService {
 
       return JasperFillManager.fillReport(report, templateBean.getParameters(), data);
     } catch (Exception exc) {
-      log.error("Error generating report from template: {}", templateBean.getTemplateName());
+      log.error("Error generating report from template: {}", templateBean.getTemplateName(), exc);
       return null;
     }
   }
