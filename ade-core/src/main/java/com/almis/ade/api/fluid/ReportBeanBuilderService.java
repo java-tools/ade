@@ -9,8 +9,8 @@ import lombok.extern.log4j.Log4j2;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 @Log4j2
 @Data
 @Accessors(chain = true)
+@Service
 public class ReportBeanBuilderService {
 
   // Autowired service
@@ -76,7 +77,7 @@ public class ReportBeanBuilderService {
       // Generate collection if defined
       JRDataSource data = new JREmptyDataSource();
       if (templateBean.getData() != null) {
-        new JRBeanCollectionDataSource(templateBean.getData());
+        data = new JRBeanCollectionDataSource(templateBean.getData());
       }
 
       return JasperFillManager.fillReport(report, templateBean.getParameters(), data);
