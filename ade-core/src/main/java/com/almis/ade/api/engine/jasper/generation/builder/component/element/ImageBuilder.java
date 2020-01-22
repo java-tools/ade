@@ -13,8 +13,6 @@ import net.sf.jasperreports.renderers.Renderable;
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 

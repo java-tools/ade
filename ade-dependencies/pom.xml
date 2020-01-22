@@ -41,7 +41,7 @@
     <sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath>
 
     <!-- dependency versions -->
-    <spring-boot.version>1.5.10.RELEASE</spring-boot.version>
+    <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
   </properties>
 
   <dependencyManagement>
@@ -73,6 +73,24 @@
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <version>1.18.10</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.xmlgraphics</groupId>
+        <artifactId>batik-bridge</artifactId>
+        <version>1.9.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate.validator</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>6.1.0.Final</version>
+      </dependency>
+
+      <dependency>
+        <groupId>net.sourceforge.barbecue</groupId>
+        <artifactId>barbecue</artifactId>
+        <version>1.5-beta1</version>
       </dependency>
 
       <dependency>
