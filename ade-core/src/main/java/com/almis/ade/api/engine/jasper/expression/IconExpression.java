@@ -2,24 +2,24 @@ package com.almis.ade.api.engine.jasper.expression;
 
 import com.almis.ade.api.bean.input.DataBean;
 import com.almis.ade.api.util.IconUtil;
+import lombok.extern.log4j.Log4j2;
 import net.sf.dynamicreports.report.base.expression.AbstractSimpleExpression;
 import net.sf.dynamicreports.report.definition.ReportParameters;
 import net.sf.jasperreports.renderers.Renderable;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.awt.*;
 
 /**
  * Component expression to evaluate component values in columns
  */
+@Log4j2
 public class IconExpression extends AbstractSimpleExpression<Renderable> {
   private static final long serialVersionUID = 1L;
   private String field;
-  private final transient Logger logger = LogManager.getLogger(this.getClass());
 
   /**
    * Expression constructor
+   *
    * @param field Field to evaluate
    */
   public IconExpression(String field) {
@@ -28,6 +28,7 @@ public class IconExpression extends AbstractSimpleExpression<Renderable> {
 
   /**
    * Evaluate the expression
+   *
    * @param reportParameters Report parameters
    * @return Icon as renderable
    */
@@ -56,7 +57,7 @@ public class IconExpression extends AbstractSimpleExpression<Renderable> {
       Color iconColor = IconUtil.extractColor(iconStyle);
       return IconUtil.renderIcon(iconSvg, iconColor);
     } catch (Exception exc) {
-      logger.warn("Error retrieving icon file: {0}", new Object[]{iconName}, exc);
+      log.warn("Error retrieving icon file: {}", iconName, exc);
     }
     return null;
   }

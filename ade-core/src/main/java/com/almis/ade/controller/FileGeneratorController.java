@@ -1,9 +1,7 @@
 package com.almis.ade.controller;
 
 import com.almis.ade.api.bean.input.TemplateBean;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * FileGeneratorController class
@@ -16,7 +14,7 @@ public class FileGeneratorController {
   /**
    * Generate a generic report
    */
-  @RequestMapping("/generic")
+  @PostMapping(value = "/generic")
   public void printGenericReport(){
     throw new UnsupportedOperationException();
   }
@@ -26,7 +24,7 @@ public class FileGeneratorController {
    * @param templateBean print bean
    * @return SpecificPrintBean
    */
-  @RequestMapping(path = "/specific", produces = "application/json")
+  @PostMapping(path = "/specific", produces = "application/json")
   public TemplateBean printSpecificReport(@RequestParam ("printBean") TemplateBean templateBean){
     return templateBean;
   }

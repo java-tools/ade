@@ -19,9 +19,7 @@ import com.almis.ade.api.enumerate.Section;
 import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
 import net.sf.dynamicreports.report.builder.component.ComponentBuilder;
 import net.sf.dynamicreports.report.constant.WhenNoDataType;
-import net.sf.dynamicreports.report.exception.DRException;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 

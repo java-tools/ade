@@ -1,5 +1,6 @@
 package com.almis.ade.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,7 @@ public class PrintEngineController {
    * Retrieve engine guide info
    * @return description
    */
-  @RequestMapping("/")
+  @GetMapping(value = "/")
   public String engineGuide(){
     return "This is the ADE document generator";
   }

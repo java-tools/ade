@@ -2,6 +2,7 @@ package com.almis.ade.api.engine.jasper.generation.builder.component.element;
 
 import com.almis.ade.api.bean.component.Image;
 import com.almis.ade.api.util.ImageUtil;
+import lombok.extern.log4j.Log4j2;
 import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
 import net.sf.dynamicreports.report.builder.component.ComponentBuilder;
 import net.sf.dynamicreports.report.builder.component.VerticalListBuilder;
@@ -12,8 +13,6 @@ import net.sf.jasperreports.renderers.Renderable;
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 
@@ -21,6 +20,7 @@ import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
  *
  * @author dfuentes
  */
+@Log4j2
 public class ImageBuilder extends ElementBuilder<Image, ComponentBuilder> {
 
   /**
@@ -38,8 +38,8 @@ public class ImageBuilder extends ElementBuilder<Image, ComponentBuilder> {
         return generateVerticalList(element, component, jasperReportBuilder);
       }
 
-    } catch (IOException e) {
-      Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Error parsing url to image");
+    } catch (IOException exc) {
+      log.warn("Error parsing url to image", exc);
     }
 
     return component;
