@@ -107,7 +107,6 @@ Generate a new milestone branch:
   <<: *git_credentials
   script:
     ## Generate changelog
-    - git checkout -B milestone develop
     - git push origin milestone
   rules:
     - <<: *if-tag
