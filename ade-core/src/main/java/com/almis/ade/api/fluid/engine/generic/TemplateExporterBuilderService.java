@@ -324,13 +324,18 @@ public class TemplateExporterBuilderService {
    * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toXls() throws DRException {
+    Map<String, String> patterns = new HashMap<>();
+    patterns.put("java.util.date", "dd/MM/YYYY");
     JasperXlsExporterBuilder xlsExporter = export.xlsExporter(getTemplatePath().replace(extensionPattern, "xls"))
       .setIgnorePageMargins(true)
       .setWhitePageBackground(false)
       .setRemoveEmptySpaceBetweenRows(true)
       .setRemoveEmptySpaceBetweenColumns(true)
+      .setColumnWidthRatio(4.0f)
       .setFontSizeFixEnabled(false)
       .setImageBorderFixEnabled(true)
+      .setFormatPatternsMap(patterns)
+      .setIgnoreGraphics(true)
       .setDetectCellType(true)
       .setWrapText(false);
 
@@ -340,6 +345,7 @@ public class TemplateExporterBuilderService {
       .setPageFooterPrintWhenExpression(exp.value(Boolean.FALSE))
       .ignorePageWidth()
       .ignorePagination()
+      .rebuild()
       .toXls(xlsExporter);
     return this;
   }
@@ -351,13 +357,18 @@ public class TemplateExporterBuilderService {
    * @throws DRException DRException exception
    */
   public TemplateExporterBuilderService toXlsx() throws DRException {
+    Map<String, String> patterns = new HashMap<>();
+    patterns.put("java.util.date", "dd/MM/YYYY");
     JasperXlsxExporterBuilder xlsExporter = export.xlsxExporter(getTemplatePath().replace(extensionPattern, "xlsx"))
       .setIgnorePageMargins(true)
       .setWhitePageBackground(false)
       .setRemoveEmptySpaceBetweenRows(true)
       .setRemoveEmptySpaceBetweenColumns(true)
+      .setColumnWidthRatio(4.0f)
       .setFontSizeFixEnabled(false)
       .setImageBorderFixEnabled(true)
+      .setFormatPatternsMap(patterns)
+      .setIgnoreGraphics(true)
       .setDetectCellType(true)
       .setWrapText(false);
 
@@ -367,6 +378,7 @@ public class TemplateExporterBuilderService {
       .setPageFooterPrintWhenExpression(exp.value(Boolean.FALSE))
       .ignorePageWidth()
       .ignorePagination()
+      .rebuild()
       .toXlsx(xlsExporter);
     return this;
   }

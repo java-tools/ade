@@ -74,6 +74,8 @@ public class IconUtil {
         color = new Color(57, 179, 215, 255);
       } else if (iconStyle.contains("success")) {
         color = new Color(70, 172, 70, 255);
+      } else if (iconStyle.contains("light-gray")) {
+        color = new Color(187, 187, 187, 255);
       } else if (iconStyle.contains("color(")) {
         color = getColor(iconStyle);
       }
@@ -90,7 +92,7 @@ public class IconUtil {
   public static Color getColor(String iconStyle) {
     // Get color values
     Color color = null;
-    Pattern pattern = Pattern.compile("color\\((\\d+\\,\\d+\\,\\d+\\,\\d+)\\)");
+    Pattern pattern = Pattern.compile("color\\((\\d+,\\d+,\\d+,\\d+)\\)");
     Matcher matcher = pattern.matcher(iconStyle);
     if (matcher.find()) {
       String[] colorList = matcher.group(1).split(",");
@@ -110,13 +112,12 @@ public class IconUtil {
    * @return icon with color
    */
   private static String addColor(String icon, Color color) {
-    StringBuilder builder = new StringBuilder();
-    builder.append(" fill=\"#")
-      .append(Integer.toHexString(color.getRed()))
-      .append(Integer.toHexString(color.getGreen()))
-      .append(Integer.toHexString(color.getBlue())).append("\" fill-opacity=\"")
-      .append(color.getAlpha() / 255f).append("\"></path>");
-    return icon.replace("></path>", builder.toString());
+    String builder = " fill=\"#" +
+      Integer.toHexString(color.getRed()) +
+      Integer.toHexString(color.getGreen()) +
+      Integer.toHexString(color.getBlue()) + "\" fill-opacity=\"" +
+      color.getAlpha() / 255f + "\"></path>";
+    return icon.replace("></path>", builder);
   }
 
   /**
