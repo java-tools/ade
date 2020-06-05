@@ -28,13 +28,15 @@ import static net.sf.dynamicreports.report.builder.DynamicReports.*;
 
 /**
  * GridBuilder class
+ *
  * @author dfuentes
  */
 public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
 
   /**
    * Get grid builder
-   * @param element ReportGrid element
+   *
+   * @param element             ReportGrid element
    * @param jasperReportBuilder report builder
    * @return ComponentBuilder
    */
@@ -46,7 +48,7 @@ public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
     List<ConditionalStyleBuilder> conditionalStyleBuilderList = new ArrayList<>();
     boolean thereAreHeaders = false;
     JasperReportBuilder gridReport = report()
-            .setTemplate(StyleTemplate.REPORT_TEMPLATE);
+      .setTemplate(StyleTemplate.REPORT_TEMPLATE);
     SubreportBuilder gridSubReport = cmp.subreport(gridReport);
 
     // Set subreport orientation if defined
@@ -57,7 +59,7 @@ public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
     // Set report text style
     if (element.getFontSize() != null) {
       gridReport.setColumnTitleStyle(stl.style(StyleTemplate.COLUMN_TITLE_STYLE)
-              .setFontSize(element.getFontSize()));
+        .setFontSize(element.getFontSize()));
     }
 
     // Set stretch type
@@ -70,20 +72,20 @@ public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
       FieldBuilder<String> styleColumn = DynamicReports.field(element.getStyleColumn().getField(), String.class);
       gridReport.fields(styleColumn);
       conditionalStyleBuilderList.add(stl.conditionalStyle(cnd.equal(styleColumn, "SUBTOTAL"))
-              .setBackgroundColor(new Color(238, 238, 238)));
+        .setBackgroundColor(new Color(238, 238, 238)));
       conditionalStyleBuilderList.add(stl.conditionalStyle(cnd.equal(styleColumn, "TOTAL"))
-              .bold()
-              .setTopBorder(stl.pen1Point()
-                      .setLineWidth(2f)
-                      .setLineColor(new Color(204, 204, 204)))
-              .setBackgroundColor(new Color(221, 221, 221)));
+        .bold()
+        .setTopBorder(stl.pen1Point()
+          .setLineWidth(2f)
+          .setLineColor(new Color(204, 204, 204)))
+        .setBackgroundColor(new Color(221, 221, 221)));
     }
 
     // Set grid title
     if (element.getTitle() != null) {
       gridReport.addTitle((ComponentBuilder) getBuilderMapper()
-              .getBuilder(Text.class)
-              .build(element.getTitle(), jasperReportBuilder));
+        .getBuilder(Text.class)
+        .build(element.getTitle(), jasperReportBuilder));
     }
 
     for (GridHeader gridHeader : element.getGridHeaders()) {
@@ -92,8 +94,8 @@ public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
         ReportHeader header = (ReportHeader) gridHeader;
         // Add header to list
         ColumnTitleGroupBuilder groupBuilder = (ColumnTitleGroupBuilder) getBuilderMapper()
-                .getBuilder(header.getClass())
-                .build(header, gridReport);
+          .getBuilder(header.getClass())
+          .build(header, gridReport);
         superHeaders.add(groupBuilder);
 
         // For each column in the header, add it to columns
@@ -107,7 +109,7 @@ public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
 
     // Add column grid if there are headers
     if (thereAreHeaders) {
-      gridReport.columnGrid(superHeaders.toArray(new ColumnGridComponentBuilder[superHeaders.size()]));
+      gridReport.columnGrid(superHeaders.toArray(new ColumnGridComponentBuilder[0]));
     }
 
     // Add grid data
@@ -117,8 +119,9 @@ public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
 
   /**
    * Retrieve column builder
-   * @param grid Grid
-   * @param column Column
+   *
+   * @param grid       Grid
+   * @param column     Column
    * @param gridReport Grid report
    * @return Column builder
    */
@@ -134,8 +137,8 @@ public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
 
     // Add column
     ColumnBuilder columnBuilder = (ColumnBuilder) getBuilderMapper()
-            .getBuilder(column.getClass())
-            .build(column, gridReport);
+      .getBuilder(column.getClass())
+      .build(column, gridReport);
 
     gridReport.addColumn(columnBuilder);
     return columnBuilder;
