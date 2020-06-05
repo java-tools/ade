@@ -103,6 +103,7 @@ Deploy Maven Central:
     - git remote set-url $CI_PROJECT_URL_SSH
 
 Generate a new milestone branch:
+  image: registry.gitlab.com/aweframework/docker-tools/maven-jdk8-jq-git:latest
   stage: release
   <<: *git_credentials
   script:
@@ -113,6 +114,7 @@ Generate a new milestone branch:
     - <<: *if-tag
 
 Generate a new milestone:
+  image: registry.gitlab.com/aweframework/docker-tools/maven-jdk8-jq-git:latest
   stage: release
   <<: *git_credentials
   script:
