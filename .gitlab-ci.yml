@@ -111,8 +111,7 @@ Generate a new milestone branch:
     - git checkout -B milestone
     - git push origin milestone
   rules:
-    - <<: *if-develop
-      when: manual
+    - <<: *if-tag
 
 Generate a new milestone:
   image: registry.gitlab.com/aweframework/docker-tools/maven-jdk8-jq-git:latest

@@ -5,8 +5,7 @@ new_version=$(cat ./pom.xml | grep -o '<version>[0-9\.]*[A-Z\-]*</version>' | se
 echo "Generating new milestone for version ${new_version}"
 
 # Generate milestone
-status=$(curl -X POST -H "Content-Type: application/json" --header "Authorization: Bearer ${2}" -s "${1}/milestones" -d "{\"id\": \"${1}\",\"title\": \"${new_version}\",\"description\": \"Bug fixes and minor improvements\"}" | jq --raw-output '.')
-echo ${status}
+status=$(curl -X POST -H "Content-Type: application/json" --header "Authorization: Bearer ${2}" -s "${1}/milestones" -d "{\"id\": \"${1}\",\"title\": \"${new_version}\",\"description\": \"Bug fixes and minor improvements\"}" | jq --raw-output '.state')
 if [[ "${status}" == "null" ]]
 then
   echo "Milestone ${new_version} already exists."
