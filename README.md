@@ -11,7 +11,7 @@ ADE is the report generation library used by the **AWE** Web application develop
 This is a multi module maven project. Import as maven project with your favorite IDE
 
 ### Prerequisites
-You must have Maven 2.x installed on your computer as well as a JDK 8 or higher
+You must have Maven 3.x installed on your computer as well as a JDK 8 or higher
 
 ```
 mvn clean install
