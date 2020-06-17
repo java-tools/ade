@@ -47,7 +47,7 @@ public class ColumnBuilder extends ElementBuilder<ReportColumn, net.sf.dynamicre
       case FLOAT:
       case DOUBLE:
       case BIGDECIMAL:
-        columnBuilder = col.column(label, new ComplexNumberExpression(element.getField(), element.getType()))
+        columnBuilder = col.column(label, new ComplexNumberExpression(element.getField()))
           .setWidth(element.getWidth())
           .setFixedHeight(ROW_HEIGHT)
           .setTitleMinHeight(ROW_HEIGHT)
@@ -77,13 +77,6 @@ public class ColumnBuilder extends ElementBuilder<ReportColumn, net.sf.dynamicre
           .setImageDimension(checkboxSize, checkboxSize);
         break;
       case PERCENTAGE:
-        reportBuilder.addField(element.getField(), DataBean.class);
-        columnBuilder = col.column(label, new ComplexDoubleExpression(element.getField()))
-          .setFixedHeight(ROW_HEIGHT)
-          .setTitleMinHeight(ROW_HEIGHT)
-          .setWidth(element.getWidth())
-          .setStretchWithOverflow(true);
-        break;
       case OBJECT:
       case STRING:
       default:

@@ -43,8 +43,8 @@ public class IconExpression extends AbstractSimpleExpression<Renderable> {
       icon = reportParameters.getValue(field);
       if (icon instanceof DataBean) {
         DataBean iconData = (DataBean) icon;
-        iconName = IconUtil.extractIcon((String) iconData.getSingleValue("icon"));
-        iconStyle = (String) iconData.getSingleValue("style");
+        iconName = IconUtil.extractIcon(String.valueOf(iconData.getSingleValue("icon")));
+        iconStyle = String.valueOf(iconData.getSingleValue("style"));
       } else {
         iconName = IconUtil.extractIcon((String) icon);
       }
