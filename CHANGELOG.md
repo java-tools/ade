@@ -1,8 +1,8 @@
 
-# Changelog for ADE 2.0.13
+# Changelog for ADE 2.0.14
 *17/06/2020*
 
-# Changelog for ADE 2.0.13
+# Changelog for ADE 2.0.14
 *17/06/2020*
 
 - Row styles are not being rendered right. [MR #2](https://gitlab.com/aweframework/ade/-/merge_requests/2) (Pablo Javier García Mora)

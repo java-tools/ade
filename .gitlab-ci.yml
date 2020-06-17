@@ -42,7 +42,7 @@ stages:
 Build:
   stage: build
   script:
-    - mvn $MAVEN_CLI_OPTS compile
+    - mvn $MAVEN_CLI_OPTS clean compile
   rules:
     - <<: *if-default
 
@@ -66,7 +66,7 @@ Deploy snapshot:
   stage: deploy
   dependencies: []
   script:
-    - mvn $MAVEN_CLI_OPTS deploy
+    - mvn $MAVEN_CLI_OPTS clean deploy
   rules:
     - <<: *if-develop
 
@@ -78,7 +78,7 @@ Deploy Maven Central:
     ## Add gpg key to sign
     - gpg --batch --import <(echo "$GPG_PRIVATE_KEY")
   script:
-    - mvn $MAVEN_CLI_OPTS deploy -DperformRelease=true
+    - mvn $MAVEN_CLI_OPTS clean deploy -DperformRelease=true
   rules:
     - <<: *if-tag
 
