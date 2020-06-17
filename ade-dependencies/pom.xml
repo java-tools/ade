@@ -4,13 +4,13 @@
   <parent>
     <groupId>com.almis.ade</groupId>
     <artifactId>ade</artifactId>
-    <version>2.0.10</version>
+    <version>2.0.11</version>
     <relativePath>..</relativePath>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>ade-dependencies</artifactId>
-  <version>2.0.10</version>
+  <version>2.0.11</version>
   <packaging>pom</packaging>
   <name>ADE Dependencies (V${project.version})</name>
   <description>ADE Dependencies</description>

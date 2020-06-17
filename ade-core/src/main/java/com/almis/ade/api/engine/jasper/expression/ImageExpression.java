@@ -42,9 +42,9 @@ public class ImageExpression extends AbstractSimpleExpression<Renderable> {
     Object image = reportParameters.getValue(field);
     String imagePath;
     if (image instanceof DataBean) {
-      imagePath = (String) ((DataBean) image).getSingleValue("image");
+      imagePath = String.valueOf(((DataBean) image).getSingleValue("image"));
     } else {
-      imagePath = (String) image;
+      imagePath = String.valueOf(image);
     }
     try (InputStream inputStream = FileUtil.getResourceAsStream(imagePath)) {
       // Get image as svg
