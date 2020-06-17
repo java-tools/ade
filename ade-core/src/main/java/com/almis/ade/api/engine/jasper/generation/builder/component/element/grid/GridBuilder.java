@@ -5,8 +5,10 @@ import com.almis.ade.api.bean.component.grid.GridHeader;
 import com.almis.ade.api.bean.component.grid.ReportColumn;
 import com.almis.ade.api.bean.component.grid.ReportGrid;
 import com.almis.ade.api.bean.component.grid.ReportHeader;
+import com.almis.ade.api.bean.input.DataBean;
 import com.almis.ade.api.bean.style.StyleTemplate;
 import com.almis.ade.api.engine.jasper.generation.builder.component.element.ElementBuilder;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
 import net.sf.dynamicreports.report.builder.DynamicReports;
 import net.sf.dynamicreports.report.builder.FieldBuilder;
@@ -69,11 +71,11 @@ public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
 
     // Generate conditional styles
     if (element.getStyleColumn() != null) {
-      FieldBuilder<String> styleColumn = DynamicReports.field(element.getStyleColumn().getField(), String.class);
+      FieldBuilder<DataBean> styleColumn = DynamicReports.field(element.getStyleColumn().getField(), String.class);
       gridReport.fields(styleColumn);
-      conditionalStyleBuilderList.add(stl.conditionalStyle(cnd.equal(styleColumn, "SUBTOTAL"))
+      conditionalStyleBuilderList.add(stl.conditionalStyle(cnd.equal(styleColumn, new DataBean(JsonNodeFactory.instance.objectNode().put("value", "SUBTOTAL").put("label", "SUBTOTAL"))))
         .setBackgroundColor(new Color(238, 238, 238)));
-      conditionalStyleBuilderList.add(stl.conditionalStyle(cnd.equal(styleColumn, "TOTAL"))
+      conditionalStyleBuilderList.add(stl.conditionalStyle(cnd.equal(styleColumn, new DataBean(JsonNodeFactory.instance.objectNode().put("value", "TOTAL").put("label", "TOTAL"))))
         .bold()
         .setTopBorder(stl.pen1Point()
           .setLineWidth(2f)
@@ -128,9 +130,7 @@ public class GridBuilder extends ElementBuilder<ReportGrid, ComponentBuilder> {
   @SuppressWarnings("unchecked")
   private ColumnBuilder getColumnBuilder(ReportGrid grid, ReportColumn column, JasperReportBuilder gridReport, List<ConditionalStyleBuilder> conditionalStyleBuilders) {
     // Set conditional styles
-    for (ConditionalStyleBuilder conditionalStyleBuilder : conditionalStyleBuilders) {
-      column.getStyle().addConditionalStyle(conditionalStyleBuilder);
-    }
+    conditionalStyleBuilders.forEach(conditionalStyleBuilder -> column.getStyle().addConditionalStyle(conditionalStyleBuilder));
 
     // Set report text style
     column.setFontSize(grid.getFontSize());

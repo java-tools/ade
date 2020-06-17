@@ -34,8 +34,8 @@ public class ComplexDateExpression extends AbstractSimpleExpression<Object> {
   public Object evaluate(ReportParameters reportParameters) {
     DataBean data = reportParameters.getValue(field);
     boolean isExcel = (boolean) Optional.ofNullable(reportParameters.getParameterValue("IS_IGNORE_PAGINATION")).orElse(false);
-    String dateString = Optional.ofNullable((String) data.getSingleValue("label"))
-      .orElse((String) data.getSingleValue("value"));
+    String dateString = Optional.ofNullable(String.valueOf(data.getSingleValue("label")))
+      .orElse(String.valueOf(data.getSingleValue("value")));
     if (isExcel) {
       try {
         return new SimpleDateFormat("dd/MM/yyyy").parse(dateString);

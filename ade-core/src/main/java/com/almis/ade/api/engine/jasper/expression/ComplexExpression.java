@@ -30,7 +30,7 @@ public class ComplexExpression extends AbstractSimpleExpression<String> {
   public String evaluate(ReportParameters reportParameters) {
     DataBean data = reportParameters.getValue(field);
     return Optional
-      .ofNullable((String) data.getSingleValue("label"))
-      .orElse((String) data.getSingleValue("value"));
+      .ofNullable(String.valueOf(data.getSingleValue("label")))
+      .orElse(String.valueOf(data.getSingleValue("value")));
   }
 }

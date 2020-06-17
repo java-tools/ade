@@ -31,8 +31,6 @@ public class ComplexBooleanExpression extends AbstractSimpleExpression<Boolean> 
   @Override
   public Boolean evaluate(ReportParameters reportParameters) {
     DataBean data = reportParameters.getValue(field);
-    return Boolean.parseBoolean(Optional
-      .ofNullable((String) data.getSingleValue("label"))
-      .orElse("false"));
+    return Optional.ofNullable((Boolean) data.getSingleValue("label")).orElse(false);
   }
 }
