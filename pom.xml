@@ -12,6 +12,7 @@
   <url>https://gitlab.com/awe-team/ade/</url>
 
   <properties>
+    <revision>2.0.13-SNAPSHOT</revision>
     <!-- Project versions -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -80,7 +81,7 @@
       <plugin>
         <groupId>com.amashchenko.maven.plugin</groupId>
         <artifactId>gitflow-maven-plugin</artifactId>
-        <version>1.11.0</version>
+        <version>1.14.0</version>
         <configuration>
           <!-- optional configuration -->
           <installProject>true</installProject>
