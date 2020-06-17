@@ -1,4 +1,7 @@
 
+# Changelog for ADE 2.0.12
+*17/06/2020*
+
 # Changelog for ADE 2.0.11
 *17/06/2020*
 
