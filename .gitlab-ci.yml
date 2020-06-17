@@ -30,8 +30,6 @@ stages:
   if: '$CI_COMMIT_REF_NAME == "master"'
 .if-develop: &if-develop
   if: '$CI_COMMIT_REF_NAME == "develop"'
-.if-milestone: &if-milestone
-  if: '$CI_COMMIT_REF_NAME == "milestone"'
 .if-merge-request: &if-merge-request
   if: '$CI_MERGE_REQUEST_IID'
 .if-tag: &if-tag
@@ -68,7 +66,7 @@ Deploy snapshot:
   stage: deploy
   dependencies: []
   script:
-    - mvn $MAVEN_CLI_OPTS deploy $DEPLOY_OPTS
+    - mvn $MAVEN_CLI_OPTS deploy
   rules:
     - <<: *if-develop
 
@@ -80,7 +78,7 @@ Deploy Maven Central:
     ## Add gpg key to sign
     - gpg --batch --import <(echo "$GPG_PRIVATE_KEY")
   script:
-    - mvn $MAVEN_CLI_OPTS deploy $DEPLOY_OPTS -DperformRelease=true
+    - mvn $MAVEN_CLI_OPTS deploy -DperformRelease=true
   rules:
     - <<: *if-tag
 
@@ -102,17 +100,6 @@ Deploy Maven Central:
     - git config --global user.name "Gitlab CI"
     - git remote set-url $CI_PROJECT_URL_SSH
 
-Generate a new milestone branch:
-  image: registry.gitlab.com/aweframework/docker-tools/maven-jdk8-jq-git:latest
-  stage: release
-  <<: *git_credentials
-  script:
-    ## Generate changelog
-    - git checkout -B milestone
-    - git push origin milestone
-  rules:
-    - <<: *if-tag
-
 Generate a new milestone:
   image: registry.gitlab.com/aweframework/docker-tools/maven-jdk8-jq-git:latest
   stage: release
@@ -124,7 +111,7 @@ Generate a new milestone:
     - chmod +x ./bin/milestone.sh
     - ./bin/milestone.sh $API_URL $API_TOKEN
   rules:
-    - <<: *if-milestone
+    - <<: *if-tag
 
 Start a new release:
   image: registry.gitlab.com/aweframework/docker-tools/maven-jdk8-jq-git:latest
